@@ -118,10 +118,14 @@ export const CANNED: Record<string, CannedResponse> = {
   experience: {
     title: "Professional Experience",
     bullets: [
-      "Map Operations Specialist @ StubHub (Jan 2025 - Present, Atlanta) - Venue data validation, automation scripts, global team collaboration",
-      "Product Designer @ Omadeus/XEBA (Jul 2021 - Jul 2024, Berlin) - 100+ web app screens, UX/UI design, developer collaboration",
-      "Junior Operations Analyst @ Nuesoft (Dec 2018 - Oct 2020, Atlanta) - Data analysis, client support, French-language services",
-      "Waiter @ Apres Diem (Nov 2015 - Jun 2020, Atlanta) - Customer service, team training, operational excellence"
+      "Map Operations Specialist @ StubHub (Jan 2025 - Present, Atlanta)",
+      "- Venue data validation, automation scripts, global team collaboration",
+      "Product Designer @ Omadeus/XEBA (Jul 2021 - Jul 2024, Berlin)",
+      "- 100+ web app screens, UX/UI design, developer collaboration",
+      "Junior Operations Analyst @ Nuesoft (Dec 2018 - Oct 2020, Atlanta)",
+      "- Data analysis, client support, French-language services",
+      "Waiter @ Apres Diem (Nov 2015 - Jun 2020, Atlanta)",
+      "- Customer service, team training, operational excellence"
     ],
     cta: { label: "View Full Resume", action: "open-resume" }
   }
