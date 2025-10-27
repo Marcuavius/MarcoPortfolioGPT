@@ -1,4 +1,4 @@
-import soccerImage from '@assets/screencapture-soccercoachconnect-2025-10-26-22_35_19_1761532706759.png';
+import soccerImage from '@assets/image_1761539280980.png';
 import skyPeachImage from '@assets/image_1761532590122.png';
 import atelierImage from '@assets/screencapture-ateliermariemac-2025-10-26-22_35_32_1761532586456.png';
 import westLoftsImage from '@assets/screencapture-westloftsinromega-2025-10-26-22_35_42_1761532586456.png';
