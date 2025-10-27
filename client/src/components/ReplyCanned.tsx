@@ -153,14 +153,14 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
 }
 
 export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) {
-  const titleTypingSpeed = 30;
-  const bulletTypingSpeed = 20;
+  const titleTypingSpeed = 15;
+  const bulletTypingSpeed = 10;
   const titleDelay = 0;
   const isContactSection = response.title.includes("Let's Talk");
   
   // Calculate when title finishes typing
   const titleDuration = response.title.length * titleTypingSpeed;
-  const bulletStartDelay = titleDelay + titleDuration + 200; // 200ms buffer after title
+  const bulletStartDelay = titleDelay + titleDuration + 100;
   
   // Calculate cumulative delays for each bullet
   const bulletDelays = response.bullets.reduce((acc, bullet, idx) => {
@@ -170,7 +170,7 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
       const prevBullet = response.bullets[idx - 1];
       const prevDuration = prevBullet.length * bulletTypingSpeed;
       const prevDelay = acc[idx - 1];
-      acc.push(prevDelay + prevDuration + 100); // 100ms buffer between bullets
+      acc.push(prevDelay + prevDuration + 50);
     }
     return acc;
   }, [] as number[]);
@@ -193,7 +193,13 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
               key={idx} 
               className="flex items-start gap-2"
             >
-              <span className="text-primary mt-1">•</span>
+              <span 
+                className="text-primary mt-1 opacity-0 transition-opacity duration-200"
+                style={{
+                  opacity: 1,
+                  transitionDelay: `${bulletDelays[idx]}ms`
+                }}
+              >•</span>
               {isContactSection ? (
                 <ContactBullet bullet={bullet} delay={bulletDelays[idx]} />
               ) : (

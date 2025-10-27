@@ -10,28 +10,28 @@ interface ReplyProjectCardProps {
 }
 
 export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
-  const titleTypingSpeed = 30;
-  const summaryTypingSpeed = 20;
-  const impactTypingSpeed = 20;
+  const titleTypingSpeed = 15;
+  const summaryTypingSpeed = 10;
+  const impactTypingSpeed = 10;
   
   const titleDelay = 0;
   const titleDuration = project.title.length * titleTypingSpeed;
   
-  const summaryDelay = titleDelay + titleDuration + 100;
+  const summaryDelay = titleDelay + titleDuration + 50;
   const summaryDuration = project.summary.length * summaryTypingSpeed;
   
-  const impactHeaderDelay = summaryDelay + summaryDuration + 100;
+  const impactHeaderDelay = summaryDelay + summaryDuration + 50;
   const impactHeaderDuration = "Key Impact:".length * impactTypingSpeed;
   
   // Calculate cumulative delays for impact items
   const impactDelays = project.impact.reduce((acc, item, idx) => {
     if (idx === 0) {
-      acc.push(impactHeaderDelay + impactHeaderDuration + 100);
+      acc.push(impactHeaderDelay + impactHeaderDuration + 50);
     } else {
       const prevItem = project.impact[idx - 1];
       const prevDuration = prevItem.length * impactTypingSpeed;
       const prevDelay = acc[idx - 1];
-      acc.push(prevDelay + prevDuration + 100);
+      acc.push(prevDelay + prevDuration + 50);
     }
     return acc;
   }, [] as number[]);
@@ -90,7 +90,13 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
                 key={idx} 
                 className="flex items-start gap-2 text-sm text-muted-foreground"
               >
-                <span className="text-primary mt-1">•</span>
+                <span 
+                  className="text-primary mt-1 opacity-0 transition-opacity duration-200"
+                  style={{
+                    opacity: 1,
+                    transitionDelay: `${impactDelays[idx]}ms`
+                  }}
+                >•</span>
                 <TextType
                   text={item}
                   as="span"

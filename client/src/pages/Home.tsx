@@ -12,6 +12,7 @@ import { matchKeywords } from '@/lib/keywordMatcher';
 import { CANNED } from '@/data/canned';
 import type { Project } from '@/data/projects';
 import resumePdf from '@assets/resume.pdf';
+import TextType from '@/components/TextType';
 
 interface Message {
   id: string;
@@ -21,6 +22,39 @@ interface Message {
 }
 
 const QUICK_CHIPS = ['About', 'Experience', 'Projects', 'Contact'];
+
+function FallbackMessage({ onChipClick }: { onChipClick: (text: string) => void }) {
+  const messageTypingSpeed = 10;
+  const messageDelay = 0;
+  const messageDuration = "I might not know that one yet, but here's what I can show you 👇".length * messageTypingSpeed;
+  const chipsDelay = messageDelay + messageDuration + 100;
+  
+  return (
+    <div className="space-y-4">
+      <TextType
+        text="I might not know that one yet, but here's what I can show you 👇"
+        as="p"
+        className=""
+        typingSpeed={messageTypingSpeed}
+        initialDelay={messageDelay}
+        loop={false}
+        showCursor={false}
+      />
+      <div 
+        className="opacity-0 transition-opacity duration-300"
+        style={{
+          opacity: 1,
+          transitionDelay: `${chipsDelay}ms`
+        }}
+      >
+        <QuickChips 
+          chips={QUICK_CHIPS} 
+          onChipClick={onChipClick}
+        />
+      </div>
+    </div>
+  );
+}
 
 const WELCOME_MESSAGE: Message = {
   id: '0',
@@ -109,17 +143,7 @@ export default function Home() {
         case 'fallback':
         default:
           assistantContent = (
-            <div className="space-y-4">
-              <p className="animate-fade-in-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
-                I might not know that one yet, but here's what I can show you 👇
-              </p>
-              <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-                <QuickChips 
-                  chips={QUICK_CHIPS} 
-                  onChipClick={handleSendMessage}
-                />
-              </div>
-            </div>
+            <FallbackMessage onChipClick={handleSendMessage} />
           );
       }
 
