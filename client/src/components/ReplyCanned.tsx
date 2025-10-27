@@ -28,7 +28,7 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
         text={bullet}
         as="span"
         className="text-muted-foreground"
-        typingSpeed={20}
+        typingSpeed={5}
         initialDelay={delay}
         loop={false}
         showCursor={false}
@@ -51,7 +51,7 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
           text={bullet}
           as="span"
           className="text-muted-foreground"
-          typingSpeed={20}
+          typingSpeed={5}
           initialDelay={delay}
           loop={false}
           showCursor={false}
@@ -72,7 +72,7 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
         text={bullet}
         as="span"
         className="text-muted-foreground"
-        typingSpeed={20}
+        typingSpeed={5}
         initialDelay={delay}
         loop={false}
         showCursor={false}
@@ -92,7 +92,7 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
         text={bullet}
         as="span"
         className="text-muted-foreground"
-        typingSpeed={20}
+        typingSpeed={5}
         initialDelay={delay}
         loop={false}
         showCursor={false}
@@ -112,7 +112,7 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
         text={bullet}
         as="span"
         className="text-muted-foreground"
-        typingSpeed={20}
+        typingSpeed={5}
         initialDelay={delay}
         loop={false}
         showCursor={false}
@@ -131,7 +131,7 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
         text={bullet}
         as="span"
         className="text-muted-foreground"
-        typingSpeed={20}
+        typingSpeed={5}
         initialDelay={delay}
         loop={false}
         showCursor={false}
@@ -157,6 +157,8 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
   const bulletTypingSpeed = 5;
   const titleDelay = 0;
   const isContactSection = response.title.includes("Let's Talk");
+  const isAboutSection = response.title.includes("About Marco");
+  const hideBullets = isContactSection || isAboutSection;
   
   // Calculate when title finishes typing
   const titleDuration = response.title.length * titleTypingSpeed;
@@ -193,13 +195,15 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
               key={idx} 
               className="flex items-start gap-2"
             >
-              <span 
-                className="text-primary mt-1 opacity-0 transition-opacity duration-200"
-                style={{
-                  opacity: 1,
-                  transitionDelay: `${bulletDelays[idx]}ms`
-                }}
-              >•</span>
+              {!hideBullets && (
+                <span 
+                  className="text-primary mt-1 opacity-0 transition-opacity duration-200"
+                  style={{
+                    opacity: 1,
+                    transitionDelay: `${bulletDelays[idx]}ms`
+                  }}
+                >•</span>
+              )}
               {isContactSection ? (
                 <ContactBullet bullet={bullet} delay={bulletDelays[idx]} />
               ) : (
