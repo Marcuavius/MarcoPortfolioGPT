@@ -4,6 +4,24 @@ import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import type { Project } from '@/data/projects';
 import TextType from '@/components/TextType';
+import { useState, useEffect } from 'react';
+
+function DelayedBullet({ delay }: { delay: number }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  return (
+    <span className={`text-primary mt-1 transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      •
+    </span>
+  );
+}
 
 interface ReplyProjectCardProps {
   project: Project;
@@ -47,9 +65,9 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
       </div>
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-3">
-          {project.category.slice(0, 3).map((cat) => (
-            <Badge key={cat} variant="secondary" className="text-xs">
-              {cat}
+          {project.tags.map((tag) => (
+            <Badge key={tag} variant="outline" className="text-xs">
+              {tag}
             </Badge>
           ))}
         </div>
@@ -90,13 +108,7 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
                 key={idx} 
                 className="flex items-start gap-2 text-sm text-muted-foreground"
               >
-                <span 
-                  className="text-primary mt-1 opacity-0 transition-opacity duration-200"
-                  style={{
-                    opacity: 1,
-                    transitionDelay: `${impactDelays[idx]}ms`
-                  }}
-                >•</span>
+                <DelayedBullet delay={impactDelays[idx]} />
                 <TextType
                   text={item}
                   as="span"
@@ -109,14 +121,6 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
               </li>
             ))}
           </ul>
-        </div>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
         </div>
         
         {project.link !== '#' && (
