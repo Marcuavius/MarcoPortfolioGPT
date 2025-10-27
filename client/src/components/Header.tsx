@@ -61,7 +61,9 @@ export default function Header({ sidebarOpen }: HeaderProps) {
       sidebarOpen ? 'left-[260px]' : 'left-0 md:left-[60px]'
     }`}>
       <div className="flex items-center">
-        <h1 className="text-base font-medium text-foreground">MarcoGPT 5</h1>
+        <h1 className="text-base font-normal text-foreground">
+          MarcoGPT <span className="text-muted-foreground">5</span>
+        </h1>
       </div>
 
       <div className="relative" ref={popupRef}>
