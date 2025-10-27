@@ -49,9 +49,8 @@ export const CANNED: Record<string, CannedResponse> = {
   about: {
     title: "About Marco",
     bullets: [
-      "Designer–developer blending UX, data, and creativity",
-      "Worked across startups, studios, and personal ventures",
-      "Currently based in Germany · Fluent in English & French"
+      "My name is Marco Alibaksh, I'm a web designer who has experience building full stack websites, frontend UX/UI, as well as graphic design for marketing campaigns.",
+      "In the past I've had the opportunity to design products across a variety of settings from advertising agencies and large corporations, to small businesses as well as my own start-up projects."
     ],
     cta: { label: "View Resume", action: "open-resume" }
   },
