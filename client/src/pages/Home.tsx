@@ -206,7 +206,7 @@ export default function Home() {
               </button>
               <button
                 onClick={confirmNewChat}
-                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
                 data-testid="button-confirm-new-chat"
               >
                 Start New Chat

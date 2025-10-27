@@ -62,7 +62,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
     }`}>
       <div className="flex items-center">
         <h1 className="text-base font-normal text-foreground">
-          MarcoGPT <span className="text-muted-foreground/60">5</span>
+          MarcoGPT <span className="text-muted-foreground/50">5</span>
         </h1>
       </div>
 
