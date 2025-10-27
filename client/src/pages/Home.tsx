@@ -10,6 +10,7 @@ import ReplyReel from '@/components/ReplyReel';
 import { matchKeywords } from '@/lib/keywordMatcher';
 import { CANNED } from '@/data/canned';
 import type { Project } from '@/data/projects';
+import resumePdf from '@assets/resume.pdf';
 
 interface Message {
   id: string;
@@ -45,6 +46,12 @@ export default function Home() {
     scrollToBottom();
   }, [messages, isTyping]);
 
+  const handleCtaClick = (action: string) => {
+    if (action === 'open-resume') {
+      window.open(resumePdf, '_blank');
+    }
+  };
+
   const handleSendMessage = (text: string) => {
     if (!text.trim()) return;
     
@@ -68,7 +75,7 @@ export default function Home() {
             assistantContent = (
               <ReplyCanned 
                 response={CANNED[match.key]} 
-                onCtaClick={(action) => console.log('CTA:', action)}
+                onCtaClick={handleCtaClick}
               />
             );
           }
