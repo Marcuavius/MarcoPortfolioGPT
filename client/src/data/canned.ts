@@ -78,5 +78,38 @@ export const CANNED: Record<string, CannedResponse> = {
       "I'm detail-oriented on builds, but I like fast environments",
       "Where I constantly prototype, test, and improve"
     ]
+  },
+  stubhub: {
+    title: "Map Operations Specialist @ StubHub",
+    bullets: [
+      "January 2025 - PRESENT, Atlanta",
+      "Validated and enriched complex venue-map data to ensure accuracy and completeness, directly supporting sales enablement by optimizing coverage and identifying new data opportunities",
+      "Built and deployed custom automation scripts that streamlined repetitive mapping tasks, boosting personal productivity by roughly 40% and freeing time for higher-value analysis",
+      "Handled 200+ daily seller requests and mapping updates while collaborating with international teams to migrate and modernize legacy map data, ensuring global consistency and platform compatibility"
+    ]
+  },
+  omadeus: {
+    title: "Product Designer @ Omadeus (XEBA Technologies)",
+    bullets: [
+      "July 2021 - July 2024, Berlin, Germany",
+      "Independently designed and implemented over 100 web application screens, enhancing functionality and user experience for existing and new features within the company's primary software",
+      "Collaborated with Product Managers and Product Owners to translate concepts into compelling visual designs and user-friendly interfaces",
+      "Communicated and worked closely with developers to refine designs, facilitating smoother integration to reduce development time estimates"
+    ]
+  },
+  nuesoft: {
+    title: "Junior Operations Analyst @ Nuesoft Technologies Inc.",
+    bullets: [
+      "December 2018 - October 2020, Atlanta",
+      "Conducted operational data analysis to identify trends and improve workflows, resolving hundreds of client inquiries related to services, billing, and technical issues",
+      "Coordinated with international development teams to align projects and handled client inquiries in French, providing tailored solutions that enhanced service satisfaction"
+    ]
+  },
+  apresdiem: {
+    title: "Waiter @ Apres Diem",
+    bullets: [
+      "November 2015 - June 2020, Atlanta",
+      "Trained new hires to accelerate orientation, while advancing from busser to waiter, building strong customer-service skills and ensuring patron satisfaction"
+    ]
   }
 };

@@ -60,6 +60,23 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   'work style': { type: 'canned', key: 'howIWork' },
   'working style': { type: 'canned', key: 'howIWork' },
   
+  'stubhub experience': { type: 'canned', key: 'stubhub' },
+  'stubhub': { type: 'canned', key: 'stubhub' },
+  'map operations': { type: 'canned', key: 'stubhub' },
+  
+  'omadeus experience': { type: 'canned', key: 'omadeus' },
+  'omadeus': { type: 'canned', key: 'omadeus' },
+  'xeba': { type: 'canned', key: 'omadeus' },
+  'product designer': { type: 'canned', key: 'omadeus' },
+  
+  'nuesoft experience': { type: 'canned', key: 'nuesoft' },
+  'nuesoft': { type: 'canned', key: 'nuesoft' },
+  'operations analyst': { type: 'canned', key: 'nuesoft' },
+  
+  'apres diem experience': { type: 'canned', key: 'apresdiem' },
+  'apres diem': { type: 'canned', key: 'apresdiem' },
+  'waiter': { type: 'canned', key: 'apresdiem' },
+  
   'soccercoachconnect.com': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   'soccercoachconnect': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   coach: { type: 'project', projectSlugs: ['soccercoachconnect'] },
