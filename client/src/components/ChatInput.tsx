@@ -9,7 +9,8 @@ interface ChatInputProps {
 const PLACEHOLDER_PROMPTS = [
   "Tell me about Marco's experience",
   "How do I contact Marco",
-  "What did Marco do at StubHub"
+  "What did Marco do at StubHub",
+  "Show me Marco's projects"
 ];
 
 export default function ChatInput({ onSend, disabled }: ChatInputProps) {
