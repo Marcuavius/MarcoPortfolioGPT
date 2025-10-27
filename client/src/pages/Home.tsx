@@ -188,7 +188,7 @@ export default function Home() {
           <div className="flex-1 flex items-center justify-center px-4">
             <div className="w-full max-w-2xl space-y-6">
               <h1 className="text-2xl md:text-3xl font-normal text-center text-foreground mb-8">
-                What's on the agenda today?
+                Explore Marco's portfolio
               </h1>
               <div className="space-y-4">
                 <ChatInput 
