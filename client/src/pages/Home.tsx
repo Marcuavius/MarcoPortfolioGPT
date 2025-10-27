@@ -149,7 +149,7 @@ export default function Home() {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <Header />
+      <Header sidebarOpen={sidebarOpen} />
       <Sidebar
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
@@ -167,7 +167,7 @@ export default function Home() {
 
       {showConfirmDialog && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-card border border-card-border rounded-lg p-6 max-w-md w-full">
+          <div className="bg-[#2a2a2a] border-none rounded-lg p-6 max-w-md w-full">
             <h3 className="text-lg font-semibold mb-2">Start a new chat?</h3>
             <p className="text-muted-foreground mb-6">
               This will clear your current conversation. Are you sure you want to continue?

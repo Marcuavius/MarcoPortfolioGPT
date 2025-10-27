@@ -75,15 +75,15 @@
   --elevate-1: rgba(255,255,255, .03);
   --elevate-2: rgba(255,255,255, .06);
 
-  --background: 0 0% 9%;
+  --background: 0 0% 13%;
   --foreground: 0 0% 93%;
   --border: 0 0% 24%;
-  --card: 0 0% 13%;
+  --card: 0 0% 16%;
   --card-foreground: 0 0% 93%;
   --card-border: 0 0% 24%;
-  --sidebar: 0 0% 5%;
+  --sidebar: 0 0% 9%;
   --sidebar-foreground: 0 0% 85%;
-  --sidebar-border: 0 0% 11%;
+  --sidebar-border: 0 0% 9%;
   --sidebar-primary: 0 0% 11%;
   --sidebar-primary-foreground: 0 0% 98%;
   --sidebar-accent: 0 0% 11%;
@@ -146,12 +146,12 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-color: hsl(0 0% 9%);
+    background-color: #212121;
     color: hsl(0 0% 93%);
   }
   
   .dark body {
-    background-color: hsl(0 0% 9%);
+    background-color: #212121;
     color: hsl(0 0% 93%);
   }
   

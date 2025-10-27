@@ -2,7 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import { Share2, Link2, Linkedin, Mail } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 
-export default function Header() {
+interface HeaderProps {
+  sidebarOpen: boolean;
+}
+
+export default function Header({ sidebarOpen }: HeaderProps) {
   const [showSharePopup, setShowSharePopup] = useState(false);
   const [copied, setCopied] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -53,7 +57,9 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-14 bg-[hsl(0,0%,5%)] border-b border-[hsl(0,0%,11%)] z-50 flex items-center justify-between px-4">
+    <header className={`fixed top-0 right-0 h-14 bg-[#181818] z-50 flex items-center justify-between px-4 transition-all duration-300 ${
+      sidebarOpen ? 'left-[260px]' : 'left-0 md:left-[60px]'
+    }`}>
       <div className="flex items-center">
         <h1 className="text-base font-medium text-foreground">MarcoGPT 5</h1>
       </div>
