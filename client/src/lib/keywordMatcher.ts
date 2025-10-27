@@ -60,6 +60,7 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   'work style': { type: 'canned', key: 'howIWork' },
   'working style': { type: 'canned', key: 'howIWork' },
   
+  'soccercoachconnect.com': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   'soccercoachconnect': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   coach: { type: 'project', projectSlugs: ['soccercoachconnect'] },
   club: { type: 'project', projectSlugs: ['soccercoachconnect'] },
@@ -67,18 +68,21 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   supabase: { type: 'project', projectSlugs: ['soccercoachconnect'] },
   'full stack': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   
+  'skypeach.net': { type: 'project', projectSlugs: ['skypeach'] },
   sky: { type: 'project', projectSlugs: ['skypeach'] },
   drone: { type: 'project', projectSlugs: ['skypeach'] },
   photo: { type: 'project', projectSlugs: ['skypeach'] },
   aerial: { type: 'project', projectSlugs: ['skypeach'] },
   construction: { type: 'project', projectSlugs: ['skypeach'] },
   
+  'ateliermariemac.com': { type: 'project', projectSlugs: ['ateliermariemac'] },
   atelier: { type: 'project', projectSlugs: ['ateliermariemac'] },
   fashion: { type: 'project', projectSlugs: ['ateliermariemac'] },
   shop: { type: 'project', projectSlugs: ['ateliermariemac'] },
   branding: { type: 'project', projectSlugs: ['ateliermariemac'] },
   'e-commerce': { type: 'project', projectSlugs: ['ateliermariemac'] },
   
+  'westloftsinromega.com': { type: 'project', projectSlugs: ['westloftsrome'] },
   lofts: { type: 'project', projectSlugs: ['westloftsrome'] },
   rome: { type: 'project', projectSlugs: ['westloftsrome'] },
   'real estate': { type: 'project', projectSlugs: ['westloftsrome', 'skypeach'] },
