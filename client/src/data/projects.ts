@@ -22,11 +22,11 @@ export const PROJECTS: Project[] = [
     slug: "soccercoachconnect",
     title: "SoccerCoachConnect.com",
     category: ["Web App", "Database", "Authentication", "Sports"],
-    summary: "A full-stack job board connecting soccer coaches and clubs. Includes authentication, searchable database, and role-based dashboards.",
+    summary: "A full-stack job board connecting soccer coaches with clubs worldwide. Browse coaching opportunities from youth to professional levels, with filters by position, level, and salary range.",
     impact: [
-      "Built full-stack platform with Supabase + React",
-      "Integrated coach/club authentication flows",
-      "Optimized database queries for sub-second search results"
+      "Active job listings for GK coaches, assistant coaches, and academy positions",
+      "Real-time job posting system with salary disclosure and location data",
+      "Built with Supabase backend and React frontend for fast, scalable search"
     ],
     heroImage: soccerImage,
     tags: ["Full Stack", "React", "Supabase", "Next.js", "Database", "Auth"],
@@ -36,39 +36,39 @@ export const PROJECTS: Project[] = [
     slug: "skypeach",
     title: "SkyPeach.net",
     category: ["Photography", "Web Design", "Drone Media"],
-    summary: "A portfolio for aerial photography and real estate visuals, featuring interactive galleries and category filtering for construction, nature, and real estate.",
+    summary: "Atlanta-based professional aerial photography service delivering high-impact drone photography and video. FAA-certified piloting for commercial real estate, residential properties, construction monitoring, land surveying, and 3D modeling.",
     impact: [
-      "Showcases 50+ aerial shots via dynamic gallery",
-      "Categorized galleries by purpose and client type",
-      "Integrated responsive UX for both mobile and desktop"
+      "Services include commercial/residential real estate, urban development, and construction documentation",
+      "Advanced photogrammetry for detailed 3D models and point clouds",
+      "Serves Greater Atlanta area with testimonials from real estate agents and project managers"
     ],
     heroImage: skyPeachImage,
-    tags: ["Web Design", "Photography", "UX", "Portfolio"],
+    tags: ["Drone Photography", "Real Estate", "3D Modeling", "Construction"],
     link: "https://skypeach.net"
   },
   {
     slug: "ateliermariemac",
     title: "AtelierMarieMac.com",
     category: ["Branding", "E-Commerce", "Fashion"],
-    summary: "A minimal fashion site showcasing handmade garments and collections, optimized for storytelling and visual clarity.",
+    summary: "Linen clothing e-commerce site inspired by Provençal lifestyle. Features handmade dresses, pants, skirts, sweaters, and accessories with elegant product photography and customer testimonials.",
     impact: [
-      "Developed modern layout emphasizing photography",
-      "Integrated simple e-commerce catalog",
-      "Created dynamic CMS-driven content updates"
+      "Shopify-powered store with organized collections (Dresses, Kaftans, Overalls, Accessories)",
+      "Featured products include Monette shirts, Juliette silk skirts, and Cloud crewneck sweaters (~$110)",
+      "Customer testimonials highlight quality craftsmanship and Provence-inspired design"
     ],
     heroImage: atelierImage,
-    tags: ["Shopify", "Branding", "Design", "Storytelling"],
+    tags: ["Shopify", "E-Commerce", "Linen Fashion", "Branding"],
     link: "https://ateliermariemac.com"
   },
   {
     slug: "westloftsrome",
     title: "WestLoftsInRomeGA.com",
     category: ["Real Estate", "Branding", "Landing Page"],
-    summary: "A responsive one-page site for a Rome, GA loft community, built for conversions and easy navigation.",
+    summary: "Modern apartment rental website for West Lofts in downtown Rome, Georgia. Features rooftop lounge, elevator access, designated parking, with sections for apartments, gallery, and neighborhood highlights.",
     impact: [
-      "Created interactive map for floor plans",
-      "Integrated contact forms and SEO optimization",
-      "Delivered brand identity aligned with modern real estate aesthetics"
+      "Responsive multi-page site showcasing apartment amenities and downtown Rome charm",
+      "Integrated contact forms (706-573-6473) and SEO optimization for local search",
+      "Clean navigation with Gallery, Neighborhood, and Apartments sections for easy browsing"
     ],
     heroImage: westLoftsImage,
     tags: ["Real Estate", "Landing Page", "UI", "SEO"],
