@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Plus, Mic } from 'lucide-react';
-import sendIcon from '@assets/image_1761539623136.png';
+import { Plus, Mic, ArrowUp } from 'lucide-react';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -51,11 +50,11 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
         
         <button
           type="submit"
-          className="flex-shrink-0 p-2 hover:bg-accent/50 rounded-full transition-colors"
+          className="flex-shrink-0 p-2 bg-white hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50"
           disabled={!message.trim() || disabled}
           data-testid="button-send"
         >
-          <img src={sendIcon} alt="Send" className="h-7 w-7" />
+          <ArrowUp className="h-5 w-5 text-black" />
         </button>
       </div>
     </form>
