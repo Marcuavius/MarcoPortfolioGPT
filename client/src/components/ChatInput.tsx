@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus, Mic, ArrowUp } from 'lucide-react';
 
 interface ChatInputProps {
@@ -6,8 +6,23 @@ interface ChatInputProps {
   disabled?: boolean;
 }
 
+const PLACEHOLDER_PROMPTS = [
+  "Tell me about Marco's experience",
+  "How do I contact Marco",
+  "What did Marco do at StubHub"
+];
+
 export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   const [message, setMessage] = useState('');
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_PROMPTS.length);
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,9 +49,9 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Tell me about Marco's experience"
+          placeholder={PLACEHOLDER_PROMPTS[placeholderIndex]}
           disabled={disabled}
-          className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground/40"
+          className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground/40 transition-all duration-500"
           data-testid="input-chat"
         />
         
