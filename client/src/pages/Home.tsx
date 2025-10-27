@@ -24,7 +24,7 @@ interface Message {
 const QUICK_CHIPS = ['About', 'Experience', 'Projects', 'Contact'];
 
 function FallbackMessage({ onChipClick }: { onChipClick: (text: string) => void }) {
-  const messageTypingSpeed = 10;
+  const messageTypingSpeed = 5;
   const messageDelay = 0;
   const messageDuration = "I might not know that one yet, but here's what I can show you 👇".length * messageTypingSpeed;
   const chipsDelay = messageDelay + messageDuration + 100;

@@ -51,8 +51,11 @@ export const CANNED: Record<string, CannedResponse> = {
   about: {
     title: "About Marco",
     bullets: [
-      "My name is Marco Alibaksh, I'm a web designer who has experience building full stack websites, frontend UX/UI, as well as graphic design for marketing campaigns.",
-      "In the past I've had the opportunity to design products across a variety of settings from advertising agencies and large corporations, to small businesses as well as my own start-up projects."
+      "👋 My name is Marco Alibaksh, and I was born and raised in Atlanta, GA.",
+      "💻 I'm a web designer with experience building full-stack websites, UX/UI front-end experiences, and designing visual assets for marketing campaigns.",
+      "🧠 Skills: Web Design, SQL, Python, Tableau, Microsoft Excel, Power BI, Google Analytics 360, Adobe Creative Suite, Figma",
+      "🌍 Languages: English (native), French (native), Spanish (professional).",
+      "⚽ Hobbies & Interests: Soccer, Chess, Web Development, Financial Markets & Blockchain, Artificial Intelligence"
     ],
     cta: { label: "View Resume", action: "open-resume" }
   },

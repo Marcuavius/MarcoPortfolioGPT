@@ -10,9 +10,9 @@ interface ReplyProjectCardProps {
 }
 
 export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
-  const titleTypingSpeed = 15;
-  const summaryTypingSpeed = 10;
-  const impactTypingSpeed = 10;
+  const titleTypingSpeed = 8;
+  const summaryTypingSpeed = 5;
+  const impactTypingSpeed = 5;
   
   const titleDelay = 0;
   const titleDuration = project.title.length * titleTypingSpeed;

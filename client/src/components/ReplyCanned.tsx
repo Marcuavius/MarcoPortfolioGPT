@@ -153,8 +153,8 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
 }
 
 export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) {
-  const titleTypingSpeed = 15;
-  const bulletTypingSpeed = 10;
+  const titleTypingSpeed = 8;
+  const bulletTypingSpeed = 5;
   const titleDelay = 0;
   const isContactSection = response.title.includes("Let's Talk");
   
