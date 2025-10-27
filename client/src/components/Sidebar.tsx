@@ -18,6 +18,7 @@ export default function Sidebar({
   onQuickPrompt,
 }: SidebarProps) {
   const [projectsExpanded, setProjectsExpanded] = useState(true);
+  const [aboutExpanded, setAboutExpanded] = useState(false);
 
   return (
     <>
@@ -29,14 +30,57 @@ export default function Sidebar({
         <div className="flex flex-col h-full">
           {isOpen ? (
             <div className="flex flex-col h-full p-2">
+              <button
+                onClick={onToggle}
+                className="p-2 hover:bg-sidebar-accent rounded-lg transition-colors mb-2 w-fit"
+                data-testid="button-toggle-sidebar-inside"
+              >
+                <PanelLeftClose className="h-5 w-5" />
+              </button>
+
               <button 
                 onClick={onNewChat}
-                className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground mb-4"
+                className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground mb-2"
                 data-testid="button-new-chat"
               >
                 <SquarePen className="h-4 w-4" />
                 <span>New chat</span>
               </button>
+
+              <button
+                onClick={() => setAboutExpanded(!aboutExpanded)}
+                className="flex items-center justify-between w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground mb-4"
+                data-testid="button-toggle-about"
+              >
+                <span className="font-medium">About</span>
+                <ChevronRight className={`h-4 w-4 transition-transform ${aboutExpanded ? 'rotate-90' : ''}`} />
+              </button>
+
+              {aboutExpanded && (
+                <div className="mb-4 space-y-0.5">
+                  <button
+                    onClick={() => onQuickPrompt('about')}
+                    className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground/80"
+                    data-testid="about-item-about"
+                  >
+                    <span>About</span>
+                  </button>
+                  <button
+                    onClick={() => onQuickPrompt('contact')}
+                    className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground/80"
+                    data-testid="about-item-contact"
+                  >
+                    <span>Contact</span>
+                  </button>
+                  <button
+                    onClick={() => onQuickPrompt('projects')}
+                    className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground/80"
+                    data-testid="about-item-links"
+                  >
+                    <span>Links</span>
+                  </button>
+                </div>
+              )}
               
               <div className="flex-1 overflow-y-auto">
                 <div className="mb-4">
@@ -87,13 +131,15 @@ export default function Sidebar({
         </div>
       </aside>
       
-      <button
-        onClick={onToggle}
-        className="fixed left-4 top-4 z-50 p-2 hover:bg-accent/50 rounded-lg transition-colors"
-        data-testid="button-toggle-sidebar"
-      >
-        {isOpen ? <PanelLeftClose className="h-5 w-5" /> : <PanelLeft className="h-5 w-5" />}
-      </button>
+      {!isOpen && (
+        <button
+          onClick={onToggle}
+          className="fixed left-4 top-4 z-50 p-2 hover:bg-accent/50 rounded-lg transition-colors"
+          data-testid="button-toggle-sidebar"
+        >
+          <PanelLeft className="h-5 w-5" />
+        </button>
+      )}
     </>
   );
 }
