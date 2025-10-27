@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     summary: "Modern apartment rental website for West Lofts in downtown Rome, Georgia. Features rooftop lounge, elevator access, designated parking, with sections for apartments, gallery, and neighborhood highlights.",
     impact: [
       "Responsive multi-page site showcasing apartment amenities and downtown Rome charm",
-      "Integrated contact forms (706-573-6473) and SEO optimization for local search",
+      "Integrated contact forms and SEO optimization for local search",
       "Clean navigation with Gallery, Neighborhood, and Apartments sections for easy browsing"
     ],
     heroImage: westLoftsImage,

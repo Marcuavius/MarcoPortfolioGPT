@@ -179,6 +179,7 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
   const isContactSection = response.title.includes("Let's Connect");
   const isAboutSection = response.title.includes("About Marco");
   const isExperienceSection = response.title.includes("Professional Experience");
+  const isIndividualExperience = response.title.includes('@');
   const hideBullets = isContactSection || isAboutSection;
   
   // Calculate when title finishes typing
@@ -213,13 +214,14 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
         {response.bullets.map((bullet, idx) => {
           const isJobTitle = isExperienceSection && bullet.includes('@');
           const isJobDescription = isExperienceSection && !bullet.includes('@');
+          const isDateLocation = isIndividualExperience && idx === 0;
           
           return (
             <li 
               key={idx} 
-              className={`flex items-start gap-2 ${isJobDescription ? 'ml-6' : ''}`}
+              className={`flex items-start gap-2 ${isJobDescription || (isIndividualExperience && idx > 0) ? 'ml-6' : ''}`}
             >
-              {!hideBullets && !isJobDescription && (
+              {!hideBullets && !isJobDescription && !isDateLocation && (
                 <DelayedBullet delay={bulletDelays[idx]} />
               )}
               {isContactSection ? (
