@@ -120,11 +120,10 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
     );
   }
   
-  if (bullet.includes('Download: Marco Alibaksh Resume')) {
-    const parts = bullet.split('Download:');
+  if (bullet.includes('View Full Resume')) {
     return showLinks ? (
       <span className="text-muted-foreground">
-        {parts[0]}Download: <a href={resumePdf} download="Marco_Alibaksh_Resume.pdf" className="text-primary hover:underline" data-testid="link-resume-download">Marco Alibaksh Resume</a>
+        <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline" data-testid="link-resume-view">📄 View Full Resume</a>
       </span>
     ) : (
       <TextType

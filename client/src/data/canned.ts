@@ -38,14 +38,14 @@ export const CANNED: Record<string, CannedResponse> = {
     cta: { label: "Book Intro Call", action: "open-contact" }
   },
   contact: {
-    title: "📬 Let's Talk",
+    title: "Let's Connect",
     bullets: [
       "📧 Email: marco9a99@gmail.com",
       "📱 Phone: +1 (404) 956-1624",
       "💼 LinkedIn: linkedin.com/in/marcoalibaksh",
       "💻 GitHub: https://github.com/Marcuavius",
       "📚 Goodreads: https://www.goodreads.com/user/show/183662523-marco",
-      "📄 Download: Marco Alibaksh Resume"
+      "📄 View Full Resume"
     ]
   },
   about: {
@@ -56,8 +56,7 @@ export const CANNED: Record<string, CannedResponse> = {
       "🧠 Skills: Web Design, SQL, Python, Tableau, Microsoft Excel, Power BI, Google Analytics 360, Adobe Creative Suite, Figma",
       "🌍 Languages: English (native), French (native), Spanish (professional).",
       "⚽ Hobbies & Interests: Soccer, Chess, Web Development, Financial Markets & Blockchain, Artificial Intelligence"
-    ],
-    cta: { label: "View Resume", action: "open-resume" }
+    ]
   },
   outsideWork: {
     title: "Outside of Work",
