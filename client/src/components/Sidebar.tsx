@@ -154,7 +154,7 @@ export default function Sidebar({
               </div>
             </div>
           ) : (
-            <div className="hidden md:flex flex-col p-2 gap-2">
+            <div className="hidden md:flex flex-col p-2 gap-2 items-end">
               <button
                 onClick={onToggle}
                 className="p-2 hover:bg-[#303030] rounded-lg transition-colors"
