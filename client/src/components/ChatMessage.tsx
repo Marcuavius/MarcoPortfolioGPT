@@ -11,27 +11,27 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
   return (
     <div 
       className={cn(
-        "flex gap-4 mb-6",
+        "flex gap-3 md:gap-4 mb-6",
         role === 'user' ? 'justify-end' : 'justify-start'
       )}
       data-testid={`message-${role}`}
     >
       {role === 'assistant' && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-          <Bot className="h-5 w-5 text-primary-foreground" />
+        <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-sm bg-muted flex items-center justify-center">
+          <Bot className="h-4 w-4 md:h-5 md:w-5 text-foreground" />
         </div>
       )}
       
       <div 
         className={cn(
-          "max-w-[85%] md:max-w-lg",
+          "max-w-[85%] md:max-w-2xl",
           role === 'user' 
-            ? 'bg-primary text-primary-foreground rounded-2xl rounded-br-md px-4 py-3' 
+            ? 'bg-muted/80 text-foreground rounded-xl px-4 py-2.5' 
             : 'space-y-2'
         )}
       >
         {content}
-        {timestamp && (
+        {timestamp && role === 'user' && (
           <p className="text-xs opacity-40 mt-1">
             {timestamp}
           </p>
@@ -39,8 +39,8 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
       </div>
       
       {role === 'user' && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-          <User className="h-5 w-5 text-accent-foreground" />
+        <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-sm bg-muted flex items-center justify-center">
+          <User className="h-4 w-4 md:h-5 md:w-5 text-foreground" />
         </div>
       )}
     </div>

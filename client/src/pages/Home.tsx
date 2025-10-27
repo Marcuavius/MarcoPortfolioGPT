@@ -145,41 +145,7 @@ export default function Home() {
           sidebarOpen ? 'ml-[280px]' : 'ml-0 md:ml-[60px]'
         }`}
       >
-        <header className="sticky top-0 z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border px-6 py-4">
-          <div className="flex items-center justify-between max-w-3xl mx-auto">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-primary-foreground font-bold text-sm">
-                M
-              </div>
-              <span className="font-medium hidden md:inline">Marco's Portfolio</span>
-            </div>
-            <nav className="flex gap-6 text-sm">
-              <button 
-                onClick={() => handleSendMessage('work')}
-                className="hover:text-primary transition-colors"
-                data-testid="nav-work"
-              >
-                Work
-              </button>
-              <button 
-                onClick={() => handleSendMessage('about')}
-                className="hover:text-primary transition-colors"
-                data-testid="nav-about"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => handleSendMessage('contact')}
-                className="hover:text-primary transition-colors"
-                data-testid="nav-contact"
-              >
-                Contact
-              </button>
-            </nav>
-          </div>
-        </header>
-
-        <div className="flex-1 overflow-y-auto px-6 py-8">
+        <div className="flex-1 overflow-y-auto px-4 md:px-6 py-8">
           <div className="max-w-3xl mx-auto">
             {messages.map((message) => (
               <ChatMessage
@@ -194,7 +160,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="sticky bottom-0 bg-background border-t border-border px-6 py-4">
+        <div className="sticky bottom-0 bg-background/80 backdrop-blur-sm px-4 md:px-6 py-4">
           <div className="max-w-3xl mx-auto space-y-3">
             <QuickChips 
               chips={QUICK_CHIPS} 
