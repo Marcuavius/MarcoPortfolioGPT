@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Sidebar from '@/components/Sidebar';
+import Header from '@/components/Header';
 import ChatMessage from '@/components/ChatMessage';
 import ChatInput from '@/components/ChatInput';
 import QuickChips from '@/components/QuickChips';
@@ -148,6 +149,7 @@ export default function Home() {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
+      <Header />
       <Sidebar
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
@@ -191,8 +193,8 @@ export default function Home() {
       )}
 
       <main 
-        className={`flex-1 flex flex-col transition-all duration-300 ${
-          sidebarOpen ? 'ml-[280px]' : 'ml-0 md:ml-[60px]'
+        className={`flex-1 flex flex-col transition-all duration-300 pt-14 ${
+          sidebarOpen ? 'ml-[260px]' : 'ml-0 md:ml-[60px]'
         }`}
       >
         {!hasStartedChat ? (

@@ -24,7 +24,7 @@ export default function Sidebar({
   return (
     <>
       <aside 
-        className={`fixed left-0 top-0 h-full bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out z-40 ${
+        className={`fixed left-0 top-14 h-[calc(100vh-3.5rem)] bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out z-40 ${
           isOpen ? 'w-[260px]' : 'w-0 md:w-[60px]'
         }`}
       >
