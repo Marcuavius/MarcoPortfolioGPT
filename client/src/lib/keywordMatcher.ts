@@ -39,7 +39,6 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   bio: { type: 'canned', key: 'about' },
   background: { type: 'canned', key: 'about' },
   resume: { type: 'canned', key: 'about' },
-  experience: { type: 'canned', key: 'about' },
   'who are you': { type: 'canned', key: 'about' },
   
   'outside of work': { type: 'canned', key: 'outsideWork' },
@@ -76,6 +75,11 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   'apres diem experience': { type: 'canned', key: 'apresdiem' },
   'apres diem': { type: 'canned', key: 'apresdiem' },
   'waiter': { type: 'canned', key: 'apresdiem' },
+  
+  'experience': { type: 'canned', key: 'experience' },
+  'work history': { type: 'canned', key: 'experience' },
+  'professional experience': { type: 'canned', key: 'experience' },
+  'jobs': { type: 'canned', key: 'experience' },
   
   'soccercoachconnect.com': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   'soccercoachconnect': { type: 'project', projectSlugs: ['soccercoachconnect'] },

@@ -18,7 +18,7 @@ interface Message {
   timestamp: string;
 }
 
-const QUICK_CHIPS = ['Tour', 'Projects', 'Process', 'Contact', 'About'];
+const QUICK_CHIPS = ['About', 'Experience', 'Projects', 'Contact'];
 
 const WELCOME_MESSAGE: Message = {
   id: '0',
