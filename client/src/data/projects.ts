@@ -2,7 +2,7 @@ import soccerImage from '@assets/image_1761539280980.png';
 import skyPeachImage from '@assets/image_1761532590122.png';
 import atelierImage from '@assets/screencapture-ateliermariemac-2025-10-26-22_35_32_1761532586456.png';
 import westLoftsImage from '@assets/screencapture-westloftsinromega-2025-10-26-22_35_42_1761532586456.png';
-import maestroImage from '@assets/generated_images/Modern_login_interface_concept_c6213f53.png';
+import maestroImage from '@assets/Desktop UI 1_1761539760517.png';
 import hersheyImage from '@assets/generated_images/Hershey_chocolate_spray_concept_27d74066.png';
 import badgeClashImage from '@assets/generated_images/Football_badge_caricature_illustrations_87b7047f.png';
 
