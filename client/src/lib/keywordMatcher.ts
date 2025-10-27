@@ -127,6 +127,7 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   advertising: { type: 'project', projectSlugs: ['chocochill'] },
   'product design': { type: 'project', projectSlugs: ['chocochill'] },
   
+  'badge clash': { type: 'project', projectSlugs: ['badge-clash'] },
   badge: { type: 'project', projectSlugs: ['badge-clash'] },
   clash: { type: 'project', projectSlugs: ['badge-clash'] },
   logo: { type: 'project', projectSlugs: ['badge-clash'] },
