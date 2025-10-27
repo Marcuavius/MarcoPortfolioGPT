@@ -1,0 +1,283 @@
+Title: ChatGPT-Style Portfolio — “Theater Mode” Smart Switchboard (7 Real Projects)
+
+Instructions for the Agent:
+
+Build a sleek, ChatGPT-like portfolio site in React + Tailwind, where the homepage is the chat interface.
+There is no AI — responses are canned and keyword-matched (“theater mode”), but the experience should feel conversational, fast, and alive.
+
+1. Tech & Structure
+
+Framework: React/Next.js (Tailwind CSS styling).
+
+One main route / showing the chat interface.
+
+Local state only — no API calls, no backend.
+
+Dark ChatGPT-like layout with collapsible left sidebar, chat area, and sticky input.
+
+2. Layout & Style
+Left Sidebar
+
+Top: “New Chat” (clears conversation).
+
+Section: “Quick Prompts” — chips/buttons for
+Tour, Recent Work, Case Studies, Process, Pricing, Contact, About
+
+Section: “Project Categories” — toggles
+Web Apps, Design, Branding, UI/UX, Photography, Concepts, Marketing
+
+Footer: “Portfolio Chat — Theater Mode”
+
+Main Chat Area
+
+Header: small monogram left, nav links right (Work, About, Contact)
+
+Chat bubbles: user on right, bot on left
+
+Fake typing animation (600ms)
+
+Welcome message on load:
+“👋 Hi, I’m Marco’s portfolio copilot. Ask me about a project, my process, or try a quick tour.”
+
+Input placeholder: “Ask about my work (e.g., ‘Show me the soccer site’ or ‘process’)”
+
+Quick chips under input: Tour · Projects · Process · Contact · About
+
+3. Data Models
+projects.ts
+export const PROJECTS = [
+  {
+    slug: "soccercoachconnect",
+    title: "SoccerCoachConnect.com",
+    category: ["Web App", "Database", "Authentication", "Sports"],
+    summary: "A full-stack job board connecting soccer coaches and clubs. Includes authentication, searchable database, and role-based dashboards.",
+    impact: [
+      "Built full-stack platform with Supabase + React",
+      "Integrated coach/club authentication flows",
+      "Optimized database queries for sub-second search results"
+    ],
+    heroImage: "/images/soccercoachconnect.jpg",
+    tags: ["Full Stack", "React", "Supabase", "Next.js", "Database", "Auth"],
+    link: "https://soccercoachconnect.com"
+  },
+  {
+    slug: "skypeach",
+    title: "SkyPeach.net",
+    category: ["Photography", "Web Design", "Drone Media"],
+    summary: "A portfolio for aerial photography and real estate visuals, featuring interactive galleries and category filtering for construction, nature, and real estate.",
+    impact: [
+      "Showcases 50+ aerial shots via dynamic gallery",
+      "Categorized galleries by purpose and client type",
+      "Integrated responsive UX for both mobile and desktop"
+    ],
+    heroImage: "/images/skypeach.jpg",
+    tags: ["Web Design", "Photography", "UX", "Portfolio"],
+    link: "https://skypeach.net"
+  },
+  {
+    slug: "ateliermariemac",
+    title: "AtelierMarieMac.com",
+    category: ["Branding", "E-Commerce", "Fashion"],
+    summary: "A minimal fashion site showcasing handmade garments and collections, optimized for storytelling and visual clarity.",
+    impact: [
+      "Developed modern layout emphasizing photography",
+      "Integrated simple e-commerce catalog",
+      "Created dynamic CMS-driven content updates"
+    ],
+    heroImage: "/images/ateliermariemac.jpg",
+    tags: ["Shopify", "Branding", "Design", "Storytelling"],
+    link: "https://ateliermariemac.com"
+  },
+  {
+    slug: "westloftsrome",
+    title: "WestLoftsInRomeGA.com",
+    category: ["Real Estate", "Branding", "Landing Page"],
+    summary: "A responsive one-page site for a Rome, GA loft community, built for conversions and easy navigation.",
+    impact: [
+      "Created interactive map for floor plans",
+      "Integrated contact forms and SEO optimization",
+      "Delivered brand identity aligned with modern real estate aesthetics"
+    ],
+    heroImage: "/images/westloftsrome.jpg",
+    tags: ["Real Estate", "Landing Page", "UI", "SEO"],
+    link: "https://westloftsinromega.com"
+  },
+  {
+    slug: "maestro-login",
+    title: "Maestro Login Interface",
+    category: ["UI/UX Design", "Internal Tools"],
+    summary: "Designed multiple login page UI concepts for a company’s internal platform, refining layouts and interactions before final selection.",
+    impact: [
+      "Explored 5+ visual directions and animations",
+      "Focused on simplicity and fast user recognition",
+      "Delivered polished final handoff for dev team"
+    ],
+    heroImage: "/images/maestro-login.jpg",
+    tags: ["UI Design", "Prototyping", "Animations"],
+    link: "#"
+  },
+  {
+    slug: "hershey-concept",
+    title: "Hershey’s Freeze & Choc-ify (Concept)",
+    category: ["Concept Design", "Advertising", "Product Mockup"],
+    summary: "A creative concept for a ‘Freeze & Choc-ify’ spray can that instantly coats food in chocolate, with mock ads and brand extension ideas.",
+    impact: [
+      "Created full visual campaign with mock ads",
+      "Explored real-world brand partnership angles",
+      "Built photorealistic product renders"
+    ],
+    heroImage: "/images/hershey.jpg",
+    tags: ["Concept Design", "3D Mockup", "Advertising"],
+    link: "#"
+  },
+  {
+    slug: "badge-clash",
+    title: "Badge Clash",
+    category: ["Graphic Design", "Marketing", "Sports"],
+    summary: "A humorous series of modern football badge caricatures blending identity and satire for media outlets.",
+    impact: [
+      "Produced 20+ vector illustrations",
+      "Featured by football media pages",
+      "Explored visual humor within brand limits"
+    ],
+    heroImage: "/images/badge-clash.jpg",
+    tags: ["Illustration", "Brand Humor", "Social Media"],
+    link: "#"
+  }
+];
+
+4. Canned Replies (canned.ts)
+
+Include static content for:
+
+tour
+
+process
+
+pricing
+
+contact
+
+about
+
+Example:
+
+export const CANNED = {
+  tour: {
+    title: "Quick Tour",
+    bullets: [
+      "7 unique projects across design, web apps, and branding",
+      "Full-stack builds + creative campaigns",
+      "Pick a focus: UX · Photography · Branding · Concepts"
+    ],
+    cta: { label: "Start Tour", action: "tour-start" }
+  },
+  process: {
+    title: "My Process",
+    bullets: [
+      "Discovery: align goals, audience, and constraints",
+      "Design: prototypes, testing, and feedback loops",
+      "Build: functional, fast, and flexible deliverables"
+    ],
+    cta: { label: "View Example Flow", action: "open-process" }
+  },
+  pricing: {
+    title: "Typical Project Ranges",
+    bullets: [
+      "Landing sites: $1k–$2k",
+      "Full web apps: $3k–$6k",
+      "Branding & design packages: $800+"
+    ],
+    disclaimer: "Estimates vary by scope and complexity.",
+    cta: { label: "Book Intro Call", action: "open-contact" }
+  },
+  contact: {
+    title: "Let’s Talk",
+    bullets: [
+      "Email: hello@marcoalibaksh.com",
+      "Calendly: /intro-call",
+      "Download: PDF Portfolio"
+    ],
+    cta: { label: "Contact Me", action: "open-contact" }
+  },
+  about: {
+    title: "About Marco",
+    bullets: [
+      "Designer–developer blending UX, data, and creativity",
+      "Worked across startups, studios, and personal ventures",
+      "Currently based in Germany · Fluent in English & French"
+    ],
+    cta: { label: "View Resume", action: "open-resume" }
+  }
+};
+
+5. Keyword Routing (Expanded)
+
+Match user input (case-insensitive) to project or canned reply:
+
+Category	Keywords
+Tour	“tour”, “overview”, “highlights”, “show everything”
+Process	“process”, “how you work”, “workflow”, “build steps”, “method”
+Pricing	“pricing”, “cost”, “rates”, “budget”, “quote”, “range”, “estimate”
+Contact	“contact”, “book”, “email”, “talk”, “connect”, “reach out”
+About	“about”, “bio”, “background”, “resume”, “experience”, “who are you”
+SoccerCoachConnect	“soccer”, “coach”, “club”, “database”, “supabase”, “full stack”
+SkyPeach	“sky”, “drone”, “photo”, “aerial”, “construction”, “real estate”
+AtelierMarieMac	“atelier”, “fashion”, “shop”, “branding”, “e-commerce”
+WestLoftsRome	“lofts”, “rome”, “real estate”, “landing page”, “property”, “site”
+Maestro Login	“maestro”, “login”, “ui”, “interface”, “ux”
+Hershey Concept	“hershey”, “concept”, “chocolate”, “mockup”, “advertising”, “product design”
+Badge Clash	“badge”, “clash”, “logo”, “football”, “caricature”, “illustration”
+All Projects	“projects”, “case studies”, “portfolio”, “work”
+Fallback	any other input → “I might not know that one yet! Try Tour, Process, or tap a prompt below.”
+6. Chat Behavior
+
+When user types, system detects keywords → returns a matching canned reply or project card.
+
+Multiple matches → show “Results Reel” (up to 3 projects).
+
+Typing animation delay for realism.
+
+"New Chat" resets to welcome message.
+
+7. Components
+
+ReplyCanned – for text-based canned responses
+
+ReplyProjectCard – for single project feature
+
+ReplyReel – for multi-project grid
+
+ReplyContact – for call-to-action
+
+MessageList – stores conversation history (max 10 exchanges)
+
+8. Microcopy & Details
+
+Welcome: “👋 Hi, I’m Marco’s portfolio copilot. Ask me about a project, or say ‘tour’ to begin.”
+
+Fallback: “I might not know that one yet, but here’s what I can show you 👇”
+
+Tour Flow:
+
+Feature SoccerCoachConnect
+
+Show Process block
+
+Show Badge Clash (fun visual)
+
+CTA → “Book a 15-min intro”
+
+9. Delivery
+
+Output a working, one-page ChatGPT-style experience:
+
+/ route renders full app
+
+Sidebar + chat area responsive
+
+Includes 7 projects & canned routes
+
+All “AI” behavior is simulated (no real model)
+
+Add placeholders for your images & PDFs
