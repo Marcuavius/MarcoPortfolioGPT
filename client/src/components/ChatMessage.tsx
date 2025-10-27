@@ -26,7 +26,7 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
         className={cn(
           "max-w-[85%] md:max-w-2xl",
           role === 'user' 
-            ? 'bg-muted/80 text-foreground rounded-xl px-4 py-2.5' 
+            ? 'bg-[#303030] text-foreground rounded-2xl px-4 py-3' 
             : 'space-y-2'
         )}
       >
