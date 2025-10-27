@@ -38,8 +38,9 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   about: { type: 'canned', key: 'about' },
   bio: { type: 'canned', key: 'about' },
   background: { type: 'canned', key: 'about' },
-  resume: { type: 'canned', key: 'about' },
   'who are you': { type: 'canned', key: 'about' },
+  
+  resume: { type: 'canned', key: 'contact' },
   
   'outside of work': { type: 'canned', key: 'outsideWork' },
   'outside work': { type: 'canned', key: 'outsideWork' },
