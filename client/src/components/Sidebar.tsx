@@ -118,7 +118,14 @@ export default function Sidebar({
               </div>
             </div>
           ) : (
-            <div className="hidden md:flex flex-col items-center pt-4">
+            <div className="hidden md:flex flex-col p-2 gap-2">
+              <button
+                onClick={onToggle}
+                className="p-2 hover:bg-sidebar-accent rounded-lg transition-colors"
+                data-testid="button-toggle-sidebar-collapsed"
+              >
+                <PanelLeft className="h-5 w-5" />
+              </button>
               <button
                 onClick={onNewChat}
                 className="p-2 hover:bg-sidebar-accent rounded-lg transition-colors"
@@ -130,16 +137,6 @@ export default function Sidebar({
           )}
         </div>
       </aside>
-      
-      {!isOpen && (
-        <button
-          onClick={onToggle}
-          className="fixed left-4 top-4 z-50 p-2 hover:bg-accent/50 rounded-lg transition-colors"
-          data-testid="button-toggle-sidebar"
-        >
-          <PanelLeft className="h-5 w-5" />
-        </button>
-      )}
     </>
   );
 }
