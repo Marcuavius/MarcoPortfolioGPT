@@ -139,7 +139,18 @@
     @apply border-border;
   }
 
+  html {
+    color-scheme: dark;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    background-color: hsl(0 0% 9%);
+    color: hsl(0 0% 93%);
+  }
+  
+  .dark body {
+    background-color: hsl(0 0% 9%);
+    color: hsl(0 0% 93%);
   }
 }
