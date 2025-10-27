@@ -7,7 +7,14 @@ import maestroImage2 from '@assets/Desktop UI 2_1761539760518.png';
 import maestroImage3 from '@assets/Desktop UI 3_1761539760518.png';
 import maestroImage4 from '@assets/Desktop UI 4_1761539760519.png';
 import hersheyImage from '@assets/generated_images/Hershey_chocolate_spray_concept_27d74066.png';
-import badgeClashImage from '@assets/generated_images/Football_badge_caricature_illustrations_87b7047f.png';
+import badgeClash1 from '@assets/Athletico x Barca_1761540080344.png';
+import badgeClash2 from '@assets/Bayern x Dynamo_1761540080345.png';
+import badgeClash3 from '@assets/Benfica x Barca_1761540080345.png';
+import badgeClash4 from '@assets/Brighton x Arsenal_1761540080345.png';
+import badgeClash5 from '@assets/Chelsea x Juve_1761540080346.png';
+import badgeClash6 from '@assets/ManU x Villareal_1761540080346.png';
+import badgeClash7 from '@assets/Porco x Mineiro_1761540080347.png';
+import badgeClash8 from '@assets/Rennes x PSG_1761540080347.png';
 
 export interface Project {
   slug: string;
@@ -117,7 +124,8 @@ export const PROJECTS: Project[] = [
       "Featured by football media pages",
       "Explored visual humor within brand limits"
     ],
-    heroImage: badgeClashImage,
+    heroImage: badgeClash1,
+    gallery: [badgeClash1, badgeClash2, badgeClash3, badgeClash4, badgeClash5, badgeClash6, badgeClash7, badgeClash8],
     tags: ["Illustration", "Brand Humor", "Social Media"],
     link: "#"
   }
