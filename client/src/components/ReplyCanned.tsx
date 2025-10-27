@@ -1,8 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import type { CannedResponse } from '@/data/canned';
-// @ts-ignore - TextType is a JSX component
-import TextType from '@/components/TextType';
 
 interface ReplyCannedProps {
   response: CannedResponse;
@@ -15,16 +13,16 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
       <h3 className="text-xl font-semibold mb-4">{response.title}</h3>
       <ul className="space-y-2 mb-4">
         {response.bullets.map((bullet, idx) => (
-          <li key={idx} className="flex items-start gap-2">
+          <li 
+            key={idx} 
+            className="flex items-start gap-2 animate-fade-in-up opacity-0"
+            style={{ 
+              animationDelay: `${idx * 150}ms`,
+              animationFillMode: 'forwards'
+            }}
+          >
             <span className="text-primary mt-1">•</span>
-            <TextType 
-              text={[bullet]}
-              typingSpeed={30}
-              pauseDuration={0}
-              showCursor={false}
-              loop={false}
-              className="text-muted-foreground inline-block"
-            />
+            <span className="text-muted-foreground">{bullet}</span>
           </li>
         ))}
       </ul>

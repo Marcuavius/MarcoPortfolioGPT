@@ -3,8 +3,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import type { Project } from '@/data/projects';
-// @ts-ignore - TextType is a JSX component
-import TextType from '@/components/TextType';
 
 interface ReplyProjectCardProps {
   project: Project;
@@ -30,29 +28,24 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
         </div>
         
         <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <TextType 
-          text={[project.summary]}
-          typingSpeed={20}
-          pauseDuration={0}
-          showCursor={false}
-          loop={false}
-          className="text-muted-foreground mb-4 block"
-        />
+        <p className="text-muted-foreground mb-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
+          {project.summary}
+        </p>
         
         <div className="mb-4">
           <h4 className="text-sm font-medium mb-2">Key Impact:</h4>
           <ul className="space-y-1">
             {project.impact.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <li 
+                key={idx} 
+                className="flex items-start gap-2 text-sm text-muted-foreground animate-fade-in-up opacity-0"
+                style={{ 
+                  animationDelay: `${(idx + 1) * 150}ms`,
+                  animationFillMode: 'forwards'
+                }}
+              >
                 <span className="text-primary mt-1">•</span>
-                <TextType 
-                  text={[item]}
-                  typingSpeed={20}
-                  pauseDuration={0}
-                  showCursor={false}
-                  loop={false}
-                  className="inline-block"
-                />
+                <span>{item}</span>
               </li>
             ))}
           </ul>
