@@ -1,4 +1,4 @@
-import soccerImage from '@assets/screencapture-soccercoachconnect-2025-10-26-22_35_19_1761532586457.png';
+import soccerImage from '@assets/screencapture-soccercoachconnect-2025-10-26-22_35_19_1761532706759.png';
 import skyPeachImage from '@assets/image_1761532590122.png';
 import atelierImage from '@assets/screencapture-ateliermariemac-2025-10-26-22_35_32_1761532586456.png';
 import westLoftsImage from '@assets/screencapture-westloftsinromega-2025-10-26-22_35_42_1761532586456.png';
@@ -22,14 +22,14 @@ export const PROJECTS: Project[] = [
     slug: "soccercoachconnect",
     title: "SoccerCoachConnect.com",
     category: ["Web App", "Database", "Authentication", "Sports"],
-    summary: "A full-stack job board connecting soccer coaches with clubs worldwide. Browse coaching opportunities from youth to professional levels, with filters by position, level, and salary range.",
+    summary: "Full-stack soccer coaching job board built with Next.js and Supabase. Features advanced filtering (position, league level, age group, job type), real-time job postings, and dual user flows for coaches and clubs.",
     impact: [
-      "Active job listings for GK coaches, assistant coaches, and academy positions",
-      "Real-time job posting system with salary disclosure and location data",
-      "Built with Supabase backend and React frontend for fast, scalable search"
+      "Multi-filter search system: Position (GK, Assistant, Youth Coach), League Level (Professional to Youth), Age Group (U6-Senior), Job Type (Full-time/Part-time/Volunteer)",
+      "Dual authentication flows: Coaches can browse jobs, apply, and create profiles; Clubs can post jobs, search candidates, and access career resources",
+      "Built with Next.js 14, Supabase PostgreSQL, Row Level Security (RLS) for data protection, and optimized queries for sub-second filtering across hundreds of listings"
     ],
     heroImage: soccerImage,
-    tags: ["Full Stack", "React", "Supabase", "Next.js", "Database", "Auth"],
+    tags: ["Next.js", "React", "Supabase", "PostgreSQL", "Auth", "RLS"],
     link: "https://soccercoachconnect.com"
   },
   {
