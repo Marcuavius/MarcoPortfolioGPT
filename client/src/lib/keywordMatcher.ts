@@ -142,12 +142,17 @@ export function matchKeywords(input: string): MatchResult {
   
   const matchedProjects = new Set<string>();
   let cannedKey: string | undefined;
+  let longestCannedMatch = 0;
   let hasProjectsRequest = false;
   
   for (const [keyword, config] of Object.entries(KEYWORD_MAP)) {
     if (normalized.includes(keyword)) {
       if (config.type === 'canned' && config.key) {
-        cannedKey = config.key;
+        // Prioritize longer, more specific matches
+        if (keyword.length > longestCannedMatch) {
+          cannedKey = config.key;
+          longestCannedMatch = keyword.length;
+        }
       } else if (config.type === 'project' && config.projectSlugs) {
         config.projectSlugs.forEach(slug => matchedProjects.add(slug));
       } else if (config.type === 'projects') {
