@@ -40,10 +40,21 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
     }
   };
 
+  const handlePastePlaceholder = () => {
+    setMessage(PLACEHOLDER_PROMPTS[placeholderIndex]);
+  };
+
   return (
     <form onSubmit={handleSubmit} className="relative">
       <div className="flex items-center gap-3 bg-[#2f2f2f] rounded-full px-4 py-3.5">
-        <Plus className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+        <button
+          type="button"
+          onClick={handlePastePlaceholder}
+          className="flex-shrink-0 hover:bg-accent/50 rounded-full p-1 transition-colors"
+          data-testid="button-paste-placeholder"
+        >
+          <Plus className="h-5 w-5 text-muted-foreground" />
+        </button>
         
         <input
           type="text"
