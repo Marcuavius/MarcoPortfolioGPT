@@ -173,7 +173,7 @@ export default function Home() {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <Header sidebarOpen={sidebarOpen} />
+      <Header sidebarOpen={sidebarOpen} onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
       <Sidebar
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}

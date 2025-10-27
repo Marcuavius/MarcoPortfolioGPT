@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import { Share2, Link2, Linkedin, Mail } from 'lucide-react';
+import { Share2, Link2, Linkedin, Mail, Menu } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 
 interface HeaderProps {
   sidebarOpen: boolean;
+  onToggleSidebar: () => void;
 }
 
-export default function Header({ sidebarOpen }: HeaderProps) {
+export default function Header({ sidebarOpen, onToggleSidebar }: HeaderProps) {
   const [showSharePopup, setShowSharePopup] = useState(false);
   const [copied, setCopied] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -60,7 +61,14 @@ export default function Header({ sidebarOpen }: HeaderProps) {
     <header className={`fixed top-0 right-0 h-14 bg-[#212121] z-50 flex items-center justify-between px-4 transition-all duration-300 ${
       sidebarOpen ? 'left-[260px]' : 'left-0 md:left-[60px]'
     }`}>
-      <div className="flex items-center">
+      <div className="flex items-center gap-3">
+        <button
+          onClick={onToggleSidebar}
+          className="md:hidden p-2 hover:bg-[#303030] rounded-lg transition-colors"
+          data-testid="button-toggle-sidebar-mobile"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
         <h1 className="text-base font-normal text-foreground">
           MarcoGPT <span className="text-muted-foreground/50">5</span>
         </h1>
