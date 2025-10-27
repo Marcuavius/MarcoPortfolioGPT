@@ -23,7 +23,11 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
   if (bullet.includes('Email:')) {
     const parts = bullet.split('Email:');
     const email = parts[1].trim();
-    return (
+    return showLinks ? (
+      <span className="text-muted-foreground">
+        {parts[0]}Email: <a href={`mailto:${email}`} className="text-primary hover:underline" data-testid="link-email">{email}</a>
+      </span>
+    ) : (
       <TextType
         text={bullet}
         as="span"
@@ -155,7 +159,7 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
   const titleTypingSpeed = 8;
   const bulletTypingSpeed = 5;
   const titleDelay = 0;
-  const isContactSection = response.title.includes("Let's Talk");
+  const isContactSection = response.title.includes("Let's Connect");
   const isAboutSection = response.title.includes("About Marco");
   const hideBullets = isContactSection || isAboutSection;
   
