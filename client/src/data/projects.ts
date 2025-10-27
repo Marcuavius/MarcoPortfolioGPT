@@ -6,7 +6,12 @@ import maestroImage1 from '@assets/Desktop UI 1_1761539760517.png';
 import maestroImage2 from '@assets/Desktop UI 2_1761539760518.png';
 import maestroImage3 from '@assets/Desktop UI 3_1761539760518.png';
 import maestroImage4 from '@assets/Desktop UI 4_1761539760519.png';
-import hersheyImage from '@assets/generated_images/Hershey_chocolate_spray_concept_27d74066.png';
+import chocoChill1 from '@assets/chocochillCHOCO-CHILL-MAIN_1761540709794.png';
+import chocoChill2 from '@assets/chocochill-mainCHOCO-CHILL-MAIN_1761540709795.png';
+import chocoChill3 from '@assets/chocochillBasic-Ad_1761540748931.png';
+import chocoChill4 from '@assets/chocochillBilboard_1761540748931.png';
+import chocoChill5 from '@assets/chocochillHydrant_1761540748931.png';
+import chocoChill6 from '@assets/chocochillSnowman-ad_1761540748932.png';
 import badgeClash1 from '@assets/Athletico x Barca_1761540080344.png';
 import badgeClash2 from '@assets/Bayern x Dynamo_1761540080345.png';
 import badgeClash3 from '@assets/Benfica x Barca_1761540080345.png';
@@ -101,17 +106,18 @@ export const PROJECTS: Project[] = [
     link: "#"
   },
   {
-    slug: "hershey-concept",
-    title: "Hershey's Freeze & Choc-ify (Concept)",
+    slug: "chocochill",
+    title: "Hershey's ChocoChill",
     category: ["Concept Design", "Advertising", "Product Mockup"],
-    summary: "A creative concept for a 'Freeze & Choc-ify' spray can that instantly coats food in chocolate, with mock ads and brand extension ideas.",
+    summary: "Instant sprayable chocolate in a can - 'One Bottle. Two Options.' Campaign concept featuring photorealistic mockups, billboard ads, and playful brand activations.",
     impact: [
-      "Created full visual campaign with mock ads",
-      "Explored real-world brand partnership angles",
-      "Built photorealistic product renders"
+      "Created comprehensive ad campaign with billboards, product shots, and seasonal promotions",
+      "Dual-flavor concept: warm chocolate ('Choco') and cooling chocolate ('Chill') in one innovative can",
+      "Built photorealistic 3D product renders with multiple campaign executions including guerrilla marketing concepts"
     ],
-    heroImage: hersheyImage,
-    tags: ["Concept Design", "3D Mockup", "Advertising"],
+    heroImage: chocoChill2,
+    gallery: [chocoChill2, chocoChill1, chocoChill3, chocoChill4, chocoChill5, chocoChill6],
+    tags: ["Concept Design", "3D Mockup", "Advertising", "Campaign"],
     link: "#"
   },
   {
