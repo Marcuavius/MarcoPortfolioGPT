@@ -19,6 +19,7 @@ export default function Sidebar({
 }: SidebarProps) {
   const [projectsExpanded, setProjectsExpanded] = useState(true);
   const [aboutExpanded, setAboutExpanded] = useState(false);
+  const [chatsExpanded, setChatsExpanded] = useState(false);
 
   return (
     <>
@@ -109,11 +110,48 @@ export default function Sidebar({
                     </div>
                   )}
                 </div>
+
+                <div className="mb-4">
+                  <button
+                    onClick={() => setChatsExpanded(!chatsExpanded)}
+                    className="flex items-center justify-between w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground"
+                    data-testid="button-toggle-chats"
+                  >
+                    <span className="font-medium">Chats</span>
+                    <ChevronRight className={`h-4 w-4 transition-transform ${chatsExpanded ? 'rotate-90' : ''}`} />
+                  </button>
+                  
+                  {chatsExpanded && (
+                    <div className="mt-1 space-y-0.5">
+                      <button
+                        onClick={() => onQuickPrompt('What do you do outside of work?')}
+                        className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground/80"
+                        data-testid="chat-outside-work"
+                      >
+                        <span>🎮 Outside of Work</span>
+                      </button>
+                      <button
+                        onClick={() => onQuickPrompt('Tell me about your soccer side.')}
+                        className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground/80"
+                        data-testid="chat-soccer-sports"
+                      >
+                        <span>⚽ Soccer & Sports</span>
+                      </button>
+                      <button
+                        onClick={() => onQuickPrompt("What's your style of working?")}
+                        className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-sidebar-accent transition-colors text-sm text-sidebar-foreground/80"
+                        data-testid="chat-how-i-work"
+                      >
+                        <span>🧠 How I Work</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
               
               <div className="pt-2 border-t border-sidebar-border">
                 <p className="text-xs text-center text-muted-foreground/40 px-2 py-2">
-                  Portfolio Chat — Theater Mode
+                  MarcoGPT 5.0
                 </p>
               </div>
             </div>

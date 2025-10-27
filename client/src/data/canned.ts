@@ -54,5 +54,29 @@ export const CANNED: Record<string, CannedResponse> = {
       "Currently based in Germany · Fluent in English & French"
     ],
     cta: { label: "View Resume", action: "open-resume" }
+  },
+  outsideWork: {
+    title: "Outside of Work",
+    bullets: [
+      "Outside of designing and building things, I'm usually on a soccer pitch ⚽",
+      "Hiking somewhere quiet 🏔️",
+      "Or experimenting in the kitchen 🍝"
+    ]
+  },
+  soccer: {
+    title: "Soccer & Sports",
+    bullets: [
+      "Football (soccer) has always been a big part of my life",
+      "I play, coach, and built SoccerCoachConnect to help other coaches around the world find jobs in the soccer world",
+      "My favorite club is Chelsea 💙"
+    ]
+  },
+  howIWork: {
+    title: "How I Work",
+    bullets: [
+      "I work best when things are clear, collaborative, and a little fun",
+      "I'm detail-oriented on builds, but I like fast environments",
+      "Where I constantly prototype, test, and improve"
+    ]
   }
 };

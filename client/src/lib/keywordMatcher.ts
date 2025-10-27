@@ -16,7 +16,6 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   'show everything': { type: 'canned', key: 'tour' },
   
   process: { type: 'canned', key: 'process' },
-  'how you work': { type: 'canned', key: 'process' },
   workflow: { type: 'canned', key: 'process' },
   'build steps': { type: 'canned', key: 'process' },
   method: { type: 'canned', key: 'process' },
@@ -43,7 +42,25 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   experience: { type: 'canned', key: 'about' },
   'who are you': { type: 'canned', key: 'about' },
   
-  soccer: { type: 'project', projectSlugs: ['soccercoachconnect'] },
+  'outside of work': { type: 'canned', key: 'outsideWork' },
+  'outside work': { type: 'canned', key: 'outsideWork' },
+  hobbies: { type: 'canned', key: 'outsideWork' },
+  personal: { type: 'canned', key: 'outsideWork' },
+  'what do you do outside': { type: 'canned', key: 'outsideWork' },
+  
+  'soccer side': { type: 'canned', key: 'soccer' },
+  'tell me about soccer': { type: 'canned', key: 'soccer' },
+  'tell me about your soccer': { type: 'canned', key: 'soccer' },
+  sports: { type: 'canned', key: 'soccer' },
+  chelsea: { type: 'canned', key: 'soccer' },
+  
+  'how i work': { type: 'canned', key: 'howIWork' },
+  'how you work': { type: 'canned', key: 'howIWork' },
+  'style of working': { type: 'canned', key: 'howIWork' },
+  'work style': { type: 'canned', key: 'howIWork' },
+  'working style': { type: 'canned', key: 'howIWork' },
+  
+  'soccercoachconnect': { type: 'project', projectSlugs: ['soccercoachconnect'] },
   coach: { type: 'project', projectSlugs: ['soccercoachconnect'] },
   club: { type: 'project', projectSlugs: ['soccercoachconnect'] },
   database: { type: 'project', projectSlugs: ['soccercoachconnect'] },
