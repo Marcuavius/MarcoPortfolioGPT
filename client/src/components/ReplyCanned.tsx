@@ -153,9 +153,27 @@ function ContactBullet({ bullet, delay }: { bullet: string; delay: number }) {
 }
 
 export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) {
+  const titleTypingSpeed = 30;
+  const bulletTypingSpeed = 20;
   const titleDelay = 0;
-  const bulletStartDelay = 400;
   const isContactSection = response.title.includes("Let's Talk");
+  
+  // Calculate when title finishes typing
+  const titleDuration = response.title.length * titleTypingSpeed;
+  const bulletStartDelay = titleDelay + titleDuration + 200; // 200ms buffer after title
+  
+  // Calculate cumulative delays for each bullet
+  const bulletDelays = response.bullets.reduce((acc, bullet, idx) => {
+    if (idx === 0) {
+      acc.push(bulletStartDelay);
+    } else {
+      const prevBullet = response.bullets[idx - 1];
+      const prevDuration = prevBullet.length * bulletTypingSpeed;
+      const prevDelay = acc[idx - 1];
+      acc.push(prevDelay + prevDuration + 100); // 100ms buffer between bullets
+    }
+    return acc;
+  }, [] as number[]);
   
   return (
     <Card className="p-6 bg-transparent border-none outline-none ring-0">
@@ -163,15 +181,13 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
         text={response.title}
         as="h3"
         className="text-xl font-semibold mb-4"
-        typingSpeed={30}
+        typingSpeed={titleTypingSpeed}
         initialDelay={titleDelay}
         loop={false}
         showCursor={false}
       />
       <ul className="space-y-2 mb-4">
         {response.bullets.map((bullet, idx) => {
-          const bulletDelay = bulletStartDelay + (idx * 800);
-          
           return (
             <li 
               key={idx} 
@@ -179,14 +195,14 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
             >
               <span className="text-primary mt-1">•</span>
               {isContactSection ? (
-                <ContactBullet bullet={bullet} delay={bulletDelay} />
+                <ContactBullet bullet={bullet} delay={bulletDelays[idx]} />
               ) : (
                 <TextType
                   text={bullet}
                   as="span"
                   className="text-muted-foreground"
-                  typingSpeed={20}
-                  initialDelay={bulletDelay}
+                  typingSpeed={bulletTypingSpeed}
+                  initialDelay={bulletDelays[idx]}
                   loop={false}
                   showCursor={false}
                 />

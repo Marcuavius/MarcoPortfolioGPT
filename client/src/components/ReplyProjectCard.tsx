@@ -3,12 +3,39 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import type { Project } from '@/data/projects';
+import TextType from '@/components/TextType';
 
 interface ReplyProjectCardProps {
   project: Project;
 }
 
 export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
+  const titleTypingSpeed = 30;
+  const summaryTypingSpeed = 20;
+  const impactTypingSpeed = 20;
+  
+  const titleDelay = 0;
+  const titleDuration = project.title.length * titleTypingSpeed;
+  
+  const summaryDelay = titleDelay + titleDuration + 100;
+  const summaryDuration = project.summary.length * summaryTypingSpeed;
+  
+  const impactHeaderDelay = summaryDelay + summaryDuration + 100;
+  const impactHeaderDuration = "Key Impact:".length * impactTypingSpeed;
+  
+  // Calculate cumulative delays for impact items
+  const impactDelays = project.impact.reduce((acc, item, idx) => {
+    if (idx === 0) {
+      acc.push(impactHeaderDelay + impactHeaderDuration + 100);
+    } else {
+      const prevItem = project.impact[idx - 1];
+      const prevDuration = prevItem.length * impactTypingSpeed;
+      const prevDelay = acc[idx - 1];
+      acc.push(prevDelay + prevDuration + 100);
+    }
+    return acc;
+  }, [] as number[]);
+  
   return (
     <Card className="overflow-hidden bg-transparent border-none outline-none ring-0" data-testid={`card-project-${project.slug}`}>
       <div className="aspect-video w-full overflow-hidden">
@@ -27,25 +54,52 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
           ))}
         </div>
         
-        <h3 className="text-xl font-semibold mb-2 animate-fade-in-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>{project.title}</h3>
-        <p className="text-muted-foreground mb-4 animate-fade-in-up opacity-0" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-          {project.summary}
-        </p>
+        <TextType
+          text={project.title}
+          as="h3"
+          className="text-xl font-semibold mb-2"
+          typingSpeed={titleTypingSpeed}
+          initialDelay={titleDelay}
+          loop={false}
+          showCursor={false}
+        />
+        
+        <TextType
+          text={project.summary}
+          as="p"
+          className="text-muted-foreground mb-4"
+          typingSpeed={summaryTypingSpeed}
+          initialDelay={summaryDelay}
+          loop={false}
+          showCursor={false}
+        />
         
         <div className="mb-4">
-          <h4 className="text-sm font-medium mb-2 animate-fade-in-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>Key Impact:</h4>
+          <TextType
+            text="Key Impact:"
+            as="h4"
+            className="text-sm font-medium mb-2"
+            typingSpeed={impactTypingSpeed}
+            initialDelay={impactHeaderDelay}
+            loop={false}
+            showCursor={false}
+          />
           <ul className="space-y-1">
             {project.impact.map((item, idx) => (
               <li 
                 key={idx} 
-                className="flex items-start gap-2 text-sm text-muted-foreground animate-fade-in-up opacity-0"
-                style={{ 
-                  animationDelay: `${300 + (idx * 200)}ms`,
-                  animationFillMode: 'forwards'
-                }}
+                className="flex items-start gap-2 text-sm text-muted-foreground"
               >
                 <span className="text-primary mt-1">•</span>
-                <span>{item}</span>
+                <TextType
+                  text={item}
+                  as="span"
+                  className=""
+                  typingSpeed={impactTypingSpeed}
+                  initialDelay={impactDelays[idx]}
+                  loop={false}
+                  showCursor={false}
+                />
               </li>
             ))}
           </ul>
