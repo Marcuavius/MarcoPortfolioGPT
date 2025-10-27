@@ -27,20 +27,20 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
           ))}
         </div>
         
-        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-muted-foreground mb-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>
+        <h3 className="text-xl font-semibold mb-2 animate-fade-in-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>{project.title}</h3>
+        <p className="text-muted-foreground mb-4 animate-fade-in-up opacity-0" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
           {project.summary}
         </p>
         
         <div className="mb-4">
-          <h4 className="text-sm font-medium mb-2">Key Impact:</h4>
+          <h4 className="text-sm font-medium mb-2 animate-fade-in-up opacity-0" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>Key Impact:</h4>
           <ul className="space-y-1">
             {project.impact.map((item, idx) => (
               <li 
                 key={idx} 
                 className="flex items-start gap-2 text-sm text-muted-foreground animate-fade-in-up opacity-0"
                 style={{ 
-                  animationDelay: `${(idx + 1) * 150}ms`,
+                  animationDelay: `${300 + (idx * 200)}ms`,
                   animationFillMode: 'forwards'
                 }}
               >

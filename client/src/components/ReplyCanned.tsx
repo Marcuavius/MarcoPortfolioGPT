@@ -78,14 +78,14 @@ function renderBulletContent(bullet: string) {
 export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) {
   return (
     <Card className="p-6 bg-card border-none outline-none ring-0">
-      <h3 className="text-xl font-semibold mb-4">{response.title}</h3>
+      <h3 className="text-xl font-semibold mb-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}>{response.title}</h3>
       <ul className="space-y-2 mb-4">
         {response.bullets.map((bullet, idx) => (
           <li 
             key={idx} 
             className="flex items-start gap-2 animate-fade-in-up opacity-0"
             style={{ 
-              animationDelay: `${idx * 150}ms`,
+              animationDelay: `${100 + (idx * 200)}ms`,
               animationFillMode: 'forwards'
             }}
           >
