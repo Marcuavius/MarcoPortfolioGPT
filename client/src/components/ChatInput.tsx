@@ -34,9 +34,9 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ask anything"
+          placeholder="Tell me about Marco's experience"
           disabled={disabled}
-          className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground"
+          className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground/40"
           data-testid="input-chat"
         />
         
