@@ -29,10 +29,13 @@ const WELCOME_MESSAGE: Message = {
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  const hasStartedChat = messages.length > 0;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -43,6 +46,8 @@ export default function Home() {
   }, [messages, isTyping]);
 
   const handleSendMessage = (text: string) => {
+    if (!text.trim()) return;
+    
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
@@ -119,8 +124,15 @@ export default function Home() {
   };
 
   const handleNewChat = () => {
-    setMessages([WELCOME_MESSAGE]);
+    if (messages.length > 0) {
+      setShowConfirmDialog(true);
+    }
+  };
+
+  const confirmNewChat = () => {
+    setMessages([]);
     setSelectedCategories([]);
+    setShowConfirmDialog(false);
   };
 
   return (
@@ -140,38 +152,87 @@ export default function Home() {
         selectedCategories={selectedCategories}
       />
 
+      {showConfirmDialog && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-card border border-card-border rounded-lg p-6 max-w-md w-full">
+            <h3 className="text-lg font-semibold mb-2">Start a new chat?</h3>
+            <p className="text-muted-foreground mb-6">
+              This will clear your current conversation. Are you sure you want to continue?
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setShowConfirmDialog(false)}
+                className="px-4 py-2 rounded-lg hover:bg-accent transition-colors"
+                data-testid="button-cancel-new-chat"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmNewChat}
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                data-testid="button-confirm-new-chat"
+              >
+                Start New Chat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <main 
         className={`flex-1 flex flex-col transition-all duration-300 ${
           sidebarOpen ? 'ml-[280px]' : 'ml-0 md:ml-[60px]'
         }`}
       >
-        <div className="flex-1 overflow-y-auto px-4 md:px-6 py-8">
-          <div className="max-w-3xl mx-auto">
-            {messages.map((message) => (
-              <ChatMessage
-                key={message.id}
-                role={message.role}
-                content={message.content}
-                timestamp={message.timestamp}
-              />
-            ))}
-            {isTyping && <TypingIndicator />}
-            <div ref={messagesEndRef} />
+        {!hasStartedChat ? (
+          <div className="flex-1 flex items-center justify-center px-4">
+            <div className="w-full max-w-2xl space-y-8">
+              <h1 className="text-3xl md:text-4xl font-medium text-center text-foreground">
+                What's on the agenda today?
+              </h1>
+              <div className="space-y-3">
+                <ChatInput 
+                  onSend={handleSendMessage}
+                  disabled={isTyping}
+                />
+                <QuickChips 
+                  chips={QUICK_CHIPS} 
+                  onChipClick={handleSendMessage}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            <div className="flex-1 overflow-y-auto px-4 md:px-6 py-8">
+              <div className="max-w-3xl mx-auto">
+                {messages.map((message) => (
+                  <ChatMessage
+                    key={message.id}
+                    role={message.role}
+                    content={message.content}
+                    timestamp={message.timestamp}
+                  />
+                ))}
+                {isTyping && <TypingIndicator />}
+                <div ref={messagesEndRef} />
+              </div>
+            </div>
 
-        <div className="sticky bottom-0 bg-background/80 backdrop-blur-sm px-4 md:px-6 py-4">
-          <div className="max-w-3xl mx-auto space-y-3">
-            <QuickChips 
-              chips={QUICK_CHIPS} 
-              onChipClick={handleSendMessage}
-            />
-            <ChatInput 
-              onSend={handleSendMessage}
-              disabled={isTyping}
-            />
-          </div>
-        </div>
+            <div className="sticky bottom-0 bg-background/80 backdrop-blur-sm px-4 md:px-6 py-4">
+              <div className="max-w-3xl mx-auto space-y-3">
+                <QuickChips 
+                  chips={QUICK_CHIPS} 
+                  onChipClick={handleSendMessage}
+                />
+                <ChatInput 
+                  onSend={handleSendMessage}
+                  disabled={isTyping}
+                />
+              </div>
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
