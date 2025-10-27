@@ -10,7 +10,7 @@ interface ReplyProjectCardProps {
 
 export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
   return (
-    <Card className="overflow-hidden bg-[#2a2a2a] border-none outline-none ring-0" data-testid={`card-project-${project.slug}`}>
+    <Card className="overflow-hidden bg-transparent border-none outline-none ring-0" data-testid={`card-project-${project.slug}`}>
       <div className="aspect-video w-full overflow-hidden">
         <img 
           src={project.heroImage} 

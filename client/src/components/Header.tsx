@@ -57,7 +57,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   };
 
   return (
-    <header className={`fixed top-0 right-0 h-14 bg-[#181818] z-50 flex items-center justify-between px-4 transition-all duration-300 ${
+    <header className={`fixed top-0 right-0 h-14 bg-[#212121] z-50 flex items-center justify-between px-4 transition-all duration-300 ${
       sidebarOpen ? 'left-[260px]' : 'left-0 md:left-[60px]'
     }`}>
       <div className="flex items-center">

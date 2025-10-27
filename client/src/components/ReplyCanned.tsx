@@ -158,7 +158,7 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
   const isContactSection = response.title.includes("Let's Talk");
   
   return (
-    <Card className="p-6 bg-[#2a2a2a] border-none outline-none ring-0">
+    <Card className="p-6 bg-transparent border-none outline-none ring-0">
       <TextType
         text={response.title}
         as="h3"
