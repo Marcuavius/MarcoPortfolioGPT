@@ -186,11 +186,11 @@ export default function Home() {
       >
         {!hasStartedChat ? (
           <div className="flex-1 flex items-center justify-center px-4">
-            <div className="w-full max-w-2xl space-y-8">
-              <h1 className="text-3xl md:text-4xl font-medium text-center text-foreground">
+            <div className="w-full max-w-2xl space-y-6">
+              <h1 className="text-2xl md:text-3xl font-normal text-center text-foreground mb-8">
                 What's on the agenda today?
               </h1>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <ChatInput 
                   onSend={handleSendMessage}
                   disabled={isTyping}
