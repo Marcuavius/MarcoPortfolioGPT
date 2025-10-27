@@ -5,6 +5,23 @@ import resumePdf from '@assets/resume.pdf';
 import TextType from '@/components/TextType';
 import { useState, useEffect } from 'react';
 
+function DelayedBullet({ delay }: { delay: number }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  return (
+    <span className={`text-primary mt-1 transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      •
+    </span>
+  );
+}
+
 interface ReplyCannedProps {
   response: CannedResponse;
   onCtaClick?: (action: string) => void;
@@ -199,13 +216,7 @@ export default function ReplyCanned({ response, onCtaClick }: ReplyCannedProps) 
               className="flex items-start gap-2"
             >
               {!hideBullets && (
-                <span 
-                  className="text-primary mt-1 opacity-0 transition-opacity duration-200"
-                  style={{
-                    opacity: 1,
-                    transitionDelay: `${bulletDelays[idx]}ms`
-                  }}
-                >•</span>
+                <DelayedBullet delay={bulletDelays[idx]} />
               )}
               {isContactSection ? (
                 <ContactBullet bullet={bullet} delay={bulletDelays[idx]} />
