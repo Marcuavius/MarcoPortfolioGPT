@@ -15,7 +15,7 @@ export default function ReplyReel({ projects, onProjectClick }: ReplyReelProps) 
         {projects.map((project) => (
           <Card 
             key={project.slug}
-            className="overflow-hidden bg-card border-card-border cursor-pointer hover:shadow-lg transition-all hover:scale-[1.02]"
+            className="overflow-hidden bg-card border-none outline-none ring-0 cursor-pointer hover:shadow-lg transition-all hover:scale-[1.02]"
             onClick={() => onProjectClick?.(project)}
             data-testid={`card-project-reel-${project.slug}`}
           >

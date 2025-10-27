@@ -3,6 +3,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import type { Project } from '@/data/projects';
+// @ts-ignore - TextType is a JSX component
+import TextType from '@/components/TextType';
 
 interface ReplyProjectCardProps {
   project: Project;
@@ -10,7 +12,7 @@ interface ReplyProjectCardProps {
 
 export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
   return (
-    <Card className="overflow-hidden bg-card border-card-border" data-testid={`card-project-${project.slug}`}>
+    <Card className="overflow-hidden bg-card border-none outline-none ring-0" data-testid={`card-project-${project.slug}`}>
       <div className="aspect-video w-full overflow-hidden">
         <img 
           src={project.heroImage} 
@@ -28,7 +30,14 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
         </div>
         
         <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-muted-foreground mb-4">{project.summary}</p>
+        <TextType 
+          text={[project.summary]}
+          typingSpeed={20}
+          pauseDuration={0}
+          showCursor={false}
+          loop={false}
+          className="text-muted-foreground mb-4 block"
+        />
         
         <div className="mb-4">
           <h4 className="text-sm font-medium mb-2">Key Impact:</h4>
@@ -36,7 +45,14 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
             {project.impact.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
                 <span className="text-primary mt-1">•</span>
-                <span>{item}</span>
+                <TextType 
+                  text={[item]}
+                  typingSpeed={20}
+                  pauseDuration={0}
+                  showCursor={false}
+                  loop={false}
+                  className="inline-block"
+                />
               </li>
             ))}
           </ul>

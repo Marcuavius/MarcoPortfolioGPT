@@ -100,9 +100,17 @@ export default function Home() {
         
         case 'fallback':
         default:
+          const TextType = require('@/components/TextType').default;
           assistantContent = (
             <div className="space-y-4">
-              <p>I might not know that one yet, but here's what I can show you 👇</p>
+              <TextType 
+                text={["I might not know that one yet, but here's what I can show you 👇"]}
+                typingSpeed={40}
+                pauseDuration={0}
+                showCursor={false}
+                loop={false}
+                as="p"
+              />
               <QuickChips 
                 chips={QUICK_CHIPS} 
                 onChipClick={handleSendMessage}

@@ -137,6 +137,7 @@
 @layer base {
   * {
     @apply border-border;
+    outline: none !important;
   }
 
   html {
@@ -152,5 +153,15 @@
   .dark body {
     background-color: hsl(0 0% 9%);
     color: hsl(0 0% 93%);
+  }
+  
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus,
+  a:focus,
+  div:focus {
+    outline: none !important;
+    box-shadow: none !important;
   }
 }
