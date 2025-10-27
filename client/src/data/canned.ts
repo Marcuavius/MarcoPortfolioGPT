@@ -38,13 +38,15 @@ export const CANNED: Record<string, CannedResponse> = {
     cta: { label: "Book Intro Call", action: "open-contact" }
   },
   contact: {
-    title: "Let's Talk",
+    title: "📬 Let's Talk",
     bullets: [
-      "Email: hello@marcoalibaksh.com",
-      "Calendly: /intro-call",
-      "Download: PDF Portfolio"
-    ],
-    cta: { label: "Contact Me", action: "open-contact" }
+      "📧 Email: marco9a99@gmail.com",
+      "📱 Phone: +1 (404) 956-1624",
+      "💼 LinkedIn: linkedin.com/in/marcoalibaksh",
+      "💻 GitHub: https://github.com/Marcuavius",
+      "📚 Goodreads: https://www.goodreads.com/user/show/183662523-marco",
+      "📄 Download: Marco Alibaksh Resume"
+    ]
   },
   about: {
     title: "About Marco",
