@@ -2,7 +2,10 @@ import soccerImage from '@assets/image_1761539280980.png';
 import skyPeachImage from '@assets/image_1761532590122.png';
 import atelierImage from '@assets/screencapture-ateliermariemac-2025-10-26-22_35_32_1761532586456.png';
 import westLoftsImage from '@assets/screencapture-westloftsinromega-2025-10-26-22_35_42_1761532586456.png';
-import maestroImage from '@assets/Desktop UI 1_1761539760517.png';
+import maestroImage1 from '@assets/Desktop UI 1_1761539760517.png';
+import maestroImage2 from '@assets/Desktop UI 2_1761539760518.png';
+import maestroImage3 from '@assets/Desktop UI 3_1761539760518.png';
+import maestroImage4 from '@assets/Desktop UI 4_1761539760519.png';
 import hersheyImage from '@assets/generated_images/Hershey_chocolate_spray_concept_27d74066.png';
 import badgeClashImage from '@assets/generated_images/Football_badge_caricature_illustrations_87b7047f.png';
 
@@ -13,6 +16,7 @@ export interface Project {
   summary: string;
   impact: string[];
   heroImage: string;
+  gallery?: string[];
   tags: string[];
   link: string;
 }
@@ -84,7 +88,8 @@ export const PROJECTS: Project[] = [
       "Focused on simplicity and fast user recognition",
       "Delivered polished final handoff for dev team"
     ],
-    heroImage: maestroImage,
+    heroImage: maestroImage1,
+    gallery: [maestroImage1, maestroImage2, maestroImage3, maestroImage4],
     tags: ["UI Design", "Prototyping", "Animations"],
     link: "#"
   },

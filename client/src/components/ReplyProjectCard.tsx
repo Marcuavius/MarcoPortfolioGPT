@@ -5,6 +5,7 @@ import { ExternalLink } from 'lucide-react';
 import type { Project } from '@/data/projects';
 import TextType from '@/components/TextType';
 import { useState, useEffect } from 'react';
+import ImageLightbox from '@/components/ImageLightbox';
 
 function DelayedBullet({ delay }: { delay: number }) {
   const [visible, setVisible] = useState(false);
@@ -28,6 +29,9 @@ interface ReplyProjectCardProps {
 }
 
 export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  
   const titleTypingSpeed = 8;
   const summaryTypingSpeed = 5;
   const impactTypingSpeed = 5;
@@ -53,17 +57,44 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
     }
     return acc;
   }, [] as number[]);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
   
   return (
-    <Card className="overflow-hidden bg-transparent border-none outline-none ring-0" data-testid={`card-project-${project.slug}`}>
-      <div className="aspect-video w-full overflow-hidden">
-        <img 
-          src={project.heroImage} 
-          alt={project.title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-      <div className="p-6">
+    <>
+      <Card className="overflow-hidden bg-transparent border-none outline-none ring-0" data-testid={`card-project-${project.slug}`}>
+        {project.gallery ? (
+          <div className="w-full overflow-hidden">
+            <div className="grid grid-cols-2 gap-2 p-2">
+              {project.gallery.map((image, idx) => (
+                <div 
+                  key={idx}
+                  className="aspect-video overflow-hidden cursor-pointer"
+                  onClick={() => openLightbox(idx)}
+                  data-testid={`image-thumbnail-${idx}`}
+                >
+                  <img 
+                    src={image} 
+                    alt={`${project.title} ${idx + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="aspect-video w-full overflow-hidden">
+            <img 
+              src={project.heroImage} 
+              alt={project.title}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        )}
+        <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-3">
           {project.tags.map((tag) => (
             <Badge key={tag} variant="outline" className="text-xs">
@@ -136,5 +167,14 @@ export default function ReplyProjectCard({ project }: ReplyProjectCardProps) {
         )}
       </div>
     </Card>
+    
+    {lightboxOpen && project.gallery && (
+      <ImageLightbox
+        images={project.gallery}
+        initialIndex={lightboxIndex}
+        onClose={() => setLightboxOpen(false)}
+      />
+    )}
+    </>
   );
 }
