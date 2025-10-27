@@ -199,14 +199,14 @@ export default function Home() {
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setShowConfirmDialog(false)}
-                className="px-4 py-2 rounded-lg hover:bg-accent transition-colors"
+                className="px-4 py-2 rounded-lg hover:bg-[#303030] transition-colors"
                 data-testid="button-cancel-new-chat"
               >
                 Cancel
               </button>
               <button
                 onClick={confirmNewChat}
-                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
                 data-testid="button-confirm-new-chat"
               >
                 Start New Chat

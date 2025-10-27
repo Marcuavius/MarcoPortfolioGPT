@@ -52,14 +52,14 @@ export const PROJECTS: Project[] = [
     slug: "skypeach",
     title: "SkyPeach.net",
     category: ["Photography", "Web Design", "Drone Media"],
-    summary: "Atlanta-based professional aerial photography service delivering high-impact drone photography and video. FAA-certified piloting for commercial real estate, residential properties, construction monitoring, land surveying, and 3D modeling.",
+    summary: "Atlanta-based professional aerial photography service delivering high-impact drone photography and video. FAA-certified piloting for commercial real estate, residential properties, construction monitoring, and land surveying.",
     impact: [
       "Services include commercial/residential real estate, urban development, and construction documentation",
-      "Advanced photogrammetry for detailed 3D models and point clouds",
+      "Advanced photogrammetry for detailed models and point clouds",
       "Serves Greater Atlanta area with testimonials from real estate agents and project managers"
     ],
     heroImage: skyPeachImage,
-    tags: ["Drone Photography", "Real Estate", "3D Modeling", "Construction"],
+    tags: ["Drone Photography", "Real Estate", "Construction"],
     link: "https://skypeach.net"
   },
   {

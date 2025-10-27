@@ -147,9 +147,9 @@ export default function Sidebar({
                 </div>
               </div>
               
-              <div className="pt-2 border-t border-sidebar-border">
+              <div className="pt-2 border-t border-white/5">
                 <p className="text-xs text-center text-muted-foreground/40 px-2 py-2">
-                  MarcoGPT 5.0
+                  Marco Alibaksh Portfolio
                 </p>
               </div>
             </div>
