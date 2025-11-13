@@ -20,14 +20,6 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   'build steps': { type: 'canned', key: 'process' },
   method: { type: 'canned', key: 'process' },
   
-  pricing: { type: 'canned', key: 'pricing' },
-  cost: { type: 'canned', key: 'pricing' },
-  rates: { type: 'canned', key: 'pricing' },
-  budget: { type: 'canned', key: 'pricing' },
-  quote: { type: 'canned', key: 'pricing' },
-  range: { type: 'canned', key: 'pricing' },
-  estimate: { type: 'canned', key: 'pricing' },
-  
   contact: { type: 'canned', key: 'contact' },
   book: { type: 'canned', key: 'contact' },
   email: { type: 'canned', key: 'contact' },
@@ -54,12 +46,6 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   sports: { type: 'canned', key: 'soccer' },
   chelsea: { type: 'canned', key: 'soccer' },
   
-  'how i work': { type: 'canned', key: 'howIWork' },
-  'how you work': { type: 'canned', key: 'howIWork' },
-  'style of working': { type: 'canned', key: 'howIWork' },
-  'work style': { type: 'canned', key: 'howIWork' },
-  'working style': { type: 'canned', key: 'howIWork' },
-  
   'stubhub experience': { type: 'canned', key: 'stubhub' },
   'stubhub': { type: 'canned', key: 'stubhub' },
   'map operations': { type: 'canned', key: 'stubhub' },
@@ -76,6 +62,7 @@ const KEYWORD_MAP: Record<string, { type: MatchType; key?: string; projectSlugs?
   'apres diem experience': { type: 'canned', key: 'apresdiem' },
   'apres diem': { type: 'canned', key: 'apresdiem' },
   'waiter': { type: 'canned', key: 'apresdiem' },
+  'restaurant': { type: 'canned', key: 'apresdiem' },
   
   'experience': { type: 'canned', key: 'experience' },
   'work history': { type: 'canned', key: 'experience' },
